@@ -1,0 +1,88 @@
+PROGRES EKSPERIMEN INT8 — Llama-2-7B fault injection
+Snapshot: 2026-09-16T14:06:07Z
+==================================================================
+
+SNAPSHOT INT8  —  2026-09-16 14:06 UTC
+
+  baris            : 15,928 / 27,648  (57.61%)
+  duplikat         : 0
+  kolom            : 34
+  golden kosong    : 0
+  teks berbeda     : 15.46%
+
+  decoder tercakup : 20 / 32
+  operasi tercakup : 9 / 9
+  konfigurasi      : 174 / 288 tersentuh, 141 penuh
+  sel (cfg x fault): 1013 / 1728 tersentuh, 940 penuh
+
+  sebaran bit 0-7  : [2010, 1998, 1985, 1989, 1989, 1991, 1984, 1982]
+  per fault model  : INPUT=2775, INPUT16=2671, RANDOM=2590, RANDOM_BITFLIP=2580, WEIGHT=2726, WEIGHT16=2586
+
+  laju (1000 akhir): 5.28 dtk/baris
+  sisa             : 11,720 baris  ~17.2 jam
+  baris terakhir   : 2026-09-15 18:15 UTC
+
+==================================================================
+VERIFIKASI CAKUPAN (cek_cakupan.py --bit 8 --runs 2)
+==================================================================
+
+berkas   : /home/fikry/hasil_pgteks/progres_int8/int8_progres/massal_int8_288.csv
+record   : 15928   kolom: 34
+harapan  : 16 baris per (decoder x operasi x fault model)
+
+decoder  : 20/32  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+           TIDAK ADA: [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+operasi  : 9/9
+konfigurasi (decoder x operasi): 174
+
+sel (config x fault model) : 1044
+  penuh   : 940
+  cacat   : 104
+      d2/mlp_gate_proj_MatMul RANDOM: 15/16
+      d5/self_attn_MatMul_1 INPUT16: 15/16
+      d7/self_attn_MatMul_1 WEIGHT16: 15/16
+      d9/mlp_gate_proj_MatMul RANDOM_BITFLIP: 15/16
+      d15/mlp_down_proj_MatMul WEIGHT16: 15/16
+      d15/self_attn_q_proj_MatMul RANDOM: 10/16
+      d15/self_attn_q_proj_MatMul RANDOM_BITFLIP: 0/16
+      d16/mlp_gate_proj_MatMul INPUT: 15/16
+      d16/mlp_gate_proj_MatMul WEIGHT16: 15/16
+      d16/mlp_gate_proj_MatMul RANDOM_BITFLIP: 12/16
+      d16/self_attn_MatMul RANDOM_BITFLIP: 12/16
+      d16/self_attn_MatMul_1 WEIGHT16: 15/16
+      d16/self_attn_MatMul_1 RANDOM: 14/16
+      d16/self_attn_o_proj_MatMul WEIGHT16: 15/16
+      d16/self_attn_o_proj_MatMul RANDOM_BITFLIP: 15/16
+      d16/self_attn_q_proj_MatMul INPUT16: 0/16
+      d16/self_attn_q_proj_MatMul WEIGHT16: 0/16
+      d16/self_attn_q_proj_MatMul RANDOM: 0/16
+      d16/self_attn_q_proj_MatMul RANDOM_BITFLIP: 0/16
+      d16/self_attn_v_proj_MatMul WEIGHT: 0/16
+      ... dan 84 lagi
+
+bit 0-7: LENGKAP  sebaran 1982-2010 per bit
+
+HASIL: ADA YANG BELUM LENGKAP
+
+==================================================================
+CARA MEMBACA ANGKA 'cacat' DI ATAS
+==================================================================
+  sel penuh (16/16)            : 940
+  sel terisi sebagian (1-15)   : 73   <- gagal alokasi VRAM, ditambal tahap 2
+  sel belum tersentuh (0/16)   : 31   <- BELUM DIKERJAKAN, bukan gagal
+
+  Angka 'cacat' pada laporan di atas menjumlahkan dua kolom terakhir.
+  Yang benar-benar perlu diperhatikan hanya 73 sel terisi sebagian.
+
+==================================================================
+CATATAN
+==================================================================
+- Run masih BERJALAN; angka di atas potret sesaat, BUKAN hasil akhir.
+- Target 27.648 baris = 288 konfigurasi x 6 fault model x 8 bit x 2 injeksi.
+- 288 konfigurasi = 32 decoder x 9 operasi; decoder yang belum muncul
+  hanya berarti belum dijangkau sapuan, bukan terlewat.
+- Baris di decoder 16-19 berasal dari mesin sebelumnya dan sudah digabung;
+  nol duplikat sudah diverifikasi.
+- Sebaran bit rata (lihat 'sebaran bit 0-7') menandakan tidak ada bit
+  yang sistematis kekurangan data.
+- INT8 di sini fake-INT8 (penyimpanan & eksekusi FP32); lihat README_INT8.md bagian 1.

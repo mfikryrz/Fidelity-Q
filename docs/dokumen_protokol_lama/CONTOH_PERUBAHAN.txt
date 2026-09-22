@@ -1,0 +1,282 @@
+=== SUDAH DIGANTIKAN — protokol LAMA (sebelum revisi 10 Sep 2026). ===
+=== Protokol yang berlaku: ../README_FP16.md                            ===
+
+
+==============================================================================
+A. JAWABAN BENAR-BENAR BERGANTI  (79 baris, 32,4%)
+   Kerusakan mengubah pilihan model. Ini SATU-SATUNYA jenis yang
+   terlihat juga di dataset lama 43.120 baris.
+==============================================================================
+
+--- CONTOH 1 --------------------------------------------------------------
+soal      : elementary_mathematics/test/31   (elementary_mathematics)
+kerusakan : RANDOM pada decoder 6 / self_attn_v_proj_MatMul / bit 3
+
+INPUT (soal yang dinilai; sebelumnya ada 5 contoh soal+jawaban):
+
+    What is 123 / 8?
+    A. 15 remainder 7
+    B. 15 remainder 3
+    C. 16 remainder 5
+    D. 16 remainder 1
+    Answer:
+
+OUTPUT   (kunci jawaban: B)
+
+  golden : 'B. 15 remainder 3'
+  faulty : '1.'
+
+  huruf menurut logit : golden B -> faulty A   (BERUBAH)
+  token dihasilkan    : golden 9, faulty 4
+  kesamaan_karakter   : 0.0588
+  kesamaan_token      : 0.0
+
+--- CONTOH 2 --------------------------------------------------------------
+soal      : philosophy/test/253   (philosophy)
+kerusakan : INPUT pada decoder 6 / mlp_gate_proj_MatMul / bit 3
+
+INPUT (soal yang dinilai; sebelumnya ada 5 contoh soal+jawaban):
+
+    Aquinas claims that:
+    A. pleasure exists for its own sake.
+    B. pleasure exists for the sake of operation.
+    C. operation exists for the sake of pleasure.
+    D. both b and c.
+    Answer:
+
+OUTPUT   (kunci jawaban: B)
+
+  golden : 'A. pleasure exists for its own sake.'
+  faulty : 'D. both b and c.'
+
+  huruf menurut logit : golden A -> faulty D   (BERUBAH)
+  token dihasilkan    : golden 10, faulty 8
+  kesamaan_karakter   : 0.1944
+  kesamaan_token      : 0.0
+
+--- CONTOH 3 --------------------------------------------------------------
+soal      : miscellaneous/test/446   (miscellaneous)
+kerusakan : WEIGHT pada decoder 2 / self_attn_k_proj_MatMul / bit 14
+
+INPUT (soal yang dinilai; sebelumnya ada 5 contoh soal+jawaban):
+
+    Which of these is not a type of primate?
+    A. baboon
+    B. marmot
+    C. orangutan
+    D. chimpanzee
+    Answer:
+
+OUTPUT   (kunci jawaban: B)
+
+  golden : 'A. baboon'
+  faulty : 'D. chimpanzee'
+
+  huruf menurut logit : golden A -> faulty D   (BERUBAH)
+  token dihasilkan    : golden 6, faulty 7
+  kesamaan_karakter   : 0.2308
+  kesamaan_token      : 0.0
+
+
+==============================================================================
+B. HURUF SAMA, TEKS BEDA  (30 baris, 12,3%)
+   Inti dari pindah metode. Di dataset lama semua ini terbaca
+   'tidak ada error', karena hurufnya tidak berubah.
+==============================================================================
+
+--- CONTOH 1 --------------------------------------------------------------
+soal      : philosophy/test/253   (philosophy)
+kerusakan : WEIGHT pada decoder 6 / mlp_gate_proj_MatMul / bit 14
+
+INPUT (soal yang dinilai; sebelumnya ada 5 contoh soal+jawaban):
+
+    Aquinas claims that:
+    A. pleasure exists for its own sake.
+    B. pleasure exists for the sake of operation.
+    C. operation exists for the sake of pleasure.
+    D. both b and c.
+    Answer:
+
+OUTPUT   (kunci jawaban: B)
+
+  golden : 'A. pleasure exists for its own sake.'
+  faulty : 'A. Group A members would be more likely to persist in the occupation'
+
+  huruf menurut logit : golden A -> faulty A   (sama)
+  token dihasilkan    : golden 10, faulty 15
+  kesamaan_karakter   : 0.2941
+  kesamaan_token      : 0.0769
+
+--- CONTOH 2 --------------------------------------------------------------
+soal      : philosophy/test/253   (philosophy)
+kerusakan : RANDOM_BITFLIP pada decoder 6 / mlp_gate_proj_MatMul / bit 14
+
+INPUT (soal yang dinilai; sebelumnya ada 5 contoh soal+jawaban):
+
+    Aquinas claims that:
+    A. pleasure exists for its own sake.
+    B. pleasure exists for the sake of operation.
+    C. operation exists for the sake of pleasure.
+    D. both b and c.
+    Answer:
+
+OUTPUT   (kunci jawaban: B)
+
+  golden : 'A. pleasure exists for its own sake.'
+  faulty : 'A.ovoЉ.'
+
+  huruf menurut logit : golden A -> faulty A   (sama)
+  token dihasilkan    : golden 10, faulty 6
+  kesamaan_karakter   : 0.1389
+  kesamaan_token      : 0.0
+
+--- CONTOH 3 --------------------------------------------------------------
+soal      : medical_genetics/test/21   (medical_genetics)
+kerusakan : RANDOM pada decoder 13 / mlp_up_proj_MatMul / bit 3
+
+INPUT (soal yang dinilai; sebelumnya ada 5 contoh soal+jawaban):
+
+    X-chromosome inactivation
+    A. results in genetically turning off one of the two X chromosomes in female mammals
+    B. takes place in humans so that the same X chromosome is inactive in all of the cells of a female
+    C. is the cause of the Y chromosome being genetically inactive
+    D. occurs in fruit flies but not in mammals
+    Answer:
+
+OUTPUT   (kunci jawaban: A)
+
+  golden : 'A. results in genetically turning off one of the two X chromosomes in female mammals'
+  faulty : 'A Whether the whether'
+
+  huruf menurut logit : golden A -> faulty A   (sama)
+  token dihasilkan    : golden 24, faulty 5
+  kesamaan_karakter   : 0.1667
+  kesamaan_token      : 0.0
+
+
+==============================================================================
+C. MODEL MENGOCEH SAMPAI BATAS TOKEN  (132 baris, 54,1%)
+   Model kehilangan kemampuan berhenti. Di dataset lama tetap
+   dilaporkan satu huruf pemenang, seolah masih menjawab normal.
+==============================================================================
+
+--- CONTOH 1 --------------------------------------------------------------
+soal      : elementary_mathematics/test/31   (elementary_mathematics)
+kerusakan : WEIGHT pada decoder 6 / self_attn_v_proj_MatMul / bit 14
+
+INPUT (soal yang dinilai; sebelumnya ada 5 contoh soal+jawaban):
+
+    What is 123 / 8?
+    A. 15 remainder 7
+    B. 15 remainder 3
+    C. 16 remainder 5
+    D. 16 remainder 1
+    Answer:
+
+OUTPUT   (kunci jawaban: B)
+
+  golden : 'B. 15 remainder 3'
+  faulty : '-Љ - - - - - - - - - - - - - T - - - - - - - - - - - - T - - - - - - - - - - T, T - - - - - -'
+
+  huruf menurut logit : golden B -> faulty C   (BERUBAH)
+  token dihasilkan    : golden 9, faulty 48
+  kesamaan_karakter   : 0.0323
+  kesamaan_token      : 0.0
+
+--- CONTOH 2 --------------------------------------------------------------
+soal      : moral_disputes/test/54   (moral_disputes)
+kerusakan : WEIGHT pada decoder 26 / self_attn_o_proj_MatMul / bit 14
+
+INPUT (soal yang dinilai; sebelumnya ada 5 contoh soal+jawaban):
+
+    Papadaki argues that
+    A. sexual objectification is not always wrong.
+    B. sexual objectification involves the total reduction of a person to an object.
+    C. sexual objectification is not explainable in Kantian terms.
+    D. sexual objectification involves the denial of a person's humanity.
+    Answer:
+
+OUTPUT   (kunci jawaban: D)
+
+  golden : 'B. sexual objectification involves the total reduction of a person to an object.'
+  faulty : 'Delmourcincincincincincincincincincincincincincincincincincincincincincincincincincincincincincincincincincincincincincincincincincincincincin'
+
+  huruf menurut logit : golden B -> faulty D   (BERUBAH)
+  token dihasilkan    : golden 17, faulty 48
+  kesamaan_karakter   : 0.0986
+  kesamaan_token      : 0.0
+
+--- CONTOH 3 --------------------------------------------------------------
+soal      : medical_genetics/test/21   (medical_genetics)
+kerusakan : INPUT16 pada decoder 13 / mlp_up_proj_MatMul / bit 14
+
+INPUT (soal yang dinilai; sebelumnya ada 5 contoh soal+jawaban):
+
+    X-chromosome inactivation
+    A. results in genetically turning off one of the two X chromosomes in female mammals
+    B. takes place in humans so that the same X chromosome is inactive in all of the cells of a female
+    C. is the cause of the Y chromosome being genetically inactive
+    D. occurs in fruit flies but not in mammals
+    Answer:
+
+OUTPUT   (kunci jawaban: A)
+
+  golden : 'A. results in genetically turning off one of the two X chromosomes in female mammals'
+  faulty : 'A. results in genetically turning off one of the two X chromosomes in female mamm ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇  ⁇'
+
+  huruf menurut logit : golden A -> faulty A   (sama)
+  token dihasilkan    : golden 24, faulty 48
+  kesamaan_karakter   : 0.5127
+  kesamaan_token      : 0.3415
+
+
+==============================================================================
+D. MODEL DIAM  (3 baris, 1,2%)
+   Token pertama langsung baris-baru: tidak menjawab sama sekali.
+==============================================================================
+
+--- CONTOH 1 --------------------------------------------------------------
+soal      : miscellaneous/test/191   (miscellaneous)
+kerusakan : INPUT16 pada decoder 11 / self_attn_v_proj_MatMul / bit 14
+
+INPUT (soal yang dinilai; sebelumnya ada 5 contoh soal+jawaban):
+
+    What is the square root of 81 squared?
+    A. 9
+    B. 27
+    C. 81
+    D. 729
+    Answer:
+
+OUTPUT   (kunci jawaban: C)
+
+  golden : 'B. 27'
+  faulty : ''
+
+  huruf menurut logit : golden B -> faulty B   (sama)
+  token dihasilkan    : golden 6, faulty 1
+  kesamaan_karakter   : 0.0
+  kesamaan_token      : 0.0
+
+--- CONTOH 2 --------------------------------------------------------------
+soal      : high_school_psychology/test/209   (high_school_psychology)
+kerusakan : RANDOM pada decoder 0 / self_attn_v_proj_MatMul / bit 7
+
+INPUT (soal yang dinilai; sebelumnya ada 5 contoh soal+jawaban):
+
+    Two "cognitive shortcuts" that can lead to errors in information processing are
+    A. the representativeness heuristic and the availability heuristic
+    B. inductive reasoning and deductive reasoning
+    C. morphemic processing and phonemic processing
+    D. prototypic development and fuzzy concept development
+    Answer:
+
+OUTPUT   (kunci jawaban: A)
+
+  golden : 'A. the representativeness heuristic and the availability heuristic'
+  faulty : ''
+
+  huruf menurut logit : golden A -> faulty A   (sama)
+  token dihasilkan    : golden 17, faulty 1
+  kesamaan_karakter   : 0.0
+  kesamaan_token      : 0.0

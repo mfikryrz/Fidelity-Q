@@ -1,0 +1,43 @@
+# ============================================================================
+# .gitignore — hasil_pgteks
+#
+# Yang di-PUSH ke GitHub cuma framework-nya: src/, docs/, README.md. Semua
+# folder di bawah ini BUKAN core (lihat README.md untuk peta lengkapnya):
+#   - experiments/  7,9 GB, percobaan/backup historis, bukan kode yang
+#                   dipakai ulang
+#   - results/      243 MB, hasil eksperimen mentah -- salah satu CSV-nya
+#                   (massal_fp16_288.csv) 149 MB, MELEBIHI batas keras
+#                   GitHub 100 MB/berkas. Sudah dicadangkan terpisah ke
+#                   HuggingFace (lihat memori proyek: hf-hasil-repo-is-dataset)
+#   - zip_files/    52 MB arsip .zip/.tar.gz, cuma salinan terkompresi dari
+#                   apa yang sudah ada di experiments/results
+#   - rahasia/      token HuggingFace dkk -- JANGAN PERNAH ikut ter-commit
+# ============================================================================
+
+# --- Folder besar / bukan core --------------------------------------------
+/experiments/
+/results/
+/zip_files/
+
+# --- Rahasia -- JANGAN PERNAH ikut, sekalipun ada yang lupa nge-`git add -A` ---
+/rahasia/
+*.env
+!*.env.example
+hf_tokens*.env
+*token*.env
+
+# --- Artefak Python bawaan --------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+expenv/
+rtenv/
+
+# --- Artefak OS/editor -------------------------------------------------------
+.DS_Store
+*.swp
+
+# --- Catatan pribadi/transkrip -- bukan core framework -----------------------
+transkrip*.txt

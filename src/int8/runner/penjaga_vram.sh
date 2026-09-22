@@ -1,0 +1,195 @@
+#!/usr/bin/env bash
+# ============================================================================
+# penjaga_vram.sh — watchdog yang menangani DUA kegagalan sekaligus:
+#
+#   (a) pengawas mati        -> hidupkan lagi
+#   (b) VRAM gagal alokasi   -> TURUNKAN setelan, baru hidupkan lagi
+#
+# Kenapa (b) perlu penanganan sendiri: kegagalan VRAM TIDAK membunuh proses.
+# Baris yang gagal dilewati diam-diam dan run terus jalan seolah sehat. Pada
+# 14 Sep 2026 ini menghasilkan 56 baris hilang dari 392 (14%) tanpa satu pun
+# tanda dari luar. Penjaga yang hanya memeriksa "proses hidup atau mati" tidak
+# akan pernah melihatnya.
+#
+# Menggantikan penjaga_fp16.sh — JANGAN pasang keduanya di cron, keduanya
+# mematikan dan menghidupkan proses yang sama dan akan saling berebut.
+#
+# Pasang:
+#   crontab: */10 * * * * <ENV...> bash /workspace/fidelity/penjaga_vram.sh
+# ============================================================================
+set -uo pipefail
+
+ROOT=${ROOT:-/workspace/fidelity}
+PY=$ROOT/rtenv/bin/python
+OUT=${OUT:?OUT wajib diisi}
+TARGET=${TARGET:?TARGET wajib diisi}
+LOGS=$ROOT/logs; mkdir -p "$LOGS"
+LOG=$LOGS/penjaga_vram.log
+KERJA=$LOGS/fp16.log              # log yang ditulis jalankan_fp16.sh
+STATE=$LOGS/.penjaga_vram.state
+KUNCI=$LOGS/.penjaga_vram.lock
+
+# ambang & batas bawah
+AMBANG_ERR=${AMBANG_ERR:-10}      # error alokasi baru sebelum bertindak
+ARENA_MIN=${ARENA_MIN:-30}        # jangan turun di bawah ini: model INT8 26 GB
+                                  # masih perlu ruang kerja di atasnya
+LANGKAH_TURUN=${LANGKAH_TURUN:-5}
+MAKS_UBAH=${MAKS_UBAH:-6}
+
+# Satu instans saja. Tanpa ini, dua tik cron bisa tumpang tindih saat restart
+# memakan waktu lebih dari 10 menit — dan hasilnya dua pengawas.
+exec 9>"$KUNCI"
+flock -n 9 || exit 0
+
+catat() { echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $*" >> "$LOG"; }
+
+baris() {
+  [ -f "$OUT" ] || { echo 0; return; }
+  local n
+  n=$("$PY" -c "import csv;print(sum(1 for _ in csv.DictReader(open('$OUT',newline='',encoding='utf-8'))))" 2>/dev/null)
+  echo "${n:-0}"      # satu angka, apa pun yang terjadi
+}
+
+# ---- muat state (arena, per_proses, jumlah perubahan, watermark log) --------
+if [ -f "$STATE" ]; then . "$STATE"; fi
+ARENA=${ARENA:-${ORT_GPU_MEM_LIMIT_GB:-45}}
+PP=${PP:-${PER_PROSES:-3}}
+N_UBAH=${N_UBAH:-0}
+WM=${WM:-0}
+
+simpan_state() {
+  printf 'ARENA=%s\nPP=%s\nN_UBAH=%s\nWM=%s\n' "$ARENA" "$PP" "$N_UBAH" "$WM" > "$STATE"
+}
+
+# Setelan sudah mentok (arena di batas bawah, PER_PROSES=1, atau MAKS_UBAH
+# tercapai). Itu berarti berhenti MENYETEL, bukan berhenti MENJAGA.
+#
+# Sebelumnya di sini ada `exit 0`, dan karena WM hanya dimajukan di blok restart
+# di bawah, ERR_BARU membeku di atas AMBANG_ERR selamanya. Syarat "tidak ada
+# masalah" tidak pernah benar lagi, jadi setiap cron selalu keluar lewat sini —
+# dan pengawas yang mati tidak pernah dihidupkan. Terdeteksi 15 Sep 2026: kedua
+# mesin INT8 berjalan tanpa penjaga selama berjam-jam.
+#
+#   pengawas hidup -> majukan watermark, keluar diam-diam (jangan sentuh run)
+#   pengawas mati   -> jangan exit; jatuh ke blok kill+restart di bawah
+menyerah_tapi_jaga() {
+  if [ "$HIDUP" -eq 1 ]; then
+    catat "MENYERAH menyetel ($1); pengawas masih hidup, dibiarkan jalan."
+    WM=$UKURAN
+    simpan_state
+    exit 0
+  fi
+  catat "MENYERAH menyetel ($1), TAPI pengawas MATI -> tetap dihidupkan ulang."
+}
+
+# ---- sudah selesai? --------------------------------------------------------
+N=$(baris)
+if [ "$N" -ge "$TARGET" ]; then
+  grep -q TUNTAS "$LOG" 2>/dev/null || catat "TUNTAS $N/$TARGET"
+  exit 0
+fi
+
+# ---- hitung error alokasi BARU (setelah watermark) -------------------------
+# Watermark = ukuran log saat restart terakhir. Tanpa ini, error lama terhitung
+# berulang-ulang dan penjaga menurunkan setelan terus sampai mentok.
+UKURAN=$(stat -c %s "$KERJA" 2>/dev/null || echo 0)
+[ "$UKURAN" -lt "$WM" ] && WM=0          # log dirotasi/dihapus
+# JANGAN pakai `grep -c ... || echo 0`: saat tidak ada kecocokan, grep mencetak
+# "0" LALU keluar dengan status 1, sehingga `|| echo 0` menambah nol kedua.
+# Nilainya jadi "0\n0", perbandingan `[ -lt ]` gagal dengan "integer expression
+# expected", dan penjaga menyimpulkan ada masalah padahal tidak — memicu restart
+# yang tidak perlu. Terbukti pada uji 14 Sep 2026.
+# awk selalu keluar dengan status 0 dan selalu mencetak satu angka.
+ERR_BARU=$(tail -c +$(( WM + 1 )) "$KERJA" 2>/dev/null \
+           | awk '/Failed to allocate memory/ {n++} END {print n+0}')
+ERR_BARU=${ERR_BARU:-0}
+
+HIDUP=0
+pgrep -f "bash pengawas_fp16.sh" >/dev/null 2>&1 && HIDUP=1
+
+# ---- tidak ada masalah -> keluar diam-diam ---------------------------------
+if [ "$HIDUP" -eq 1 ] && [ "$ERR_BARU" -lt "$AMBANG_ERR" ]; then
+  exit 0
+fi
+
+# ---- ada masalah: tentukan tindakan ----------------------------------------
+PERLU_TURUN=0
+if [ "$ERR_BARU" -ge "$AMBANG_ERR" ]; then
+  PERLU_TURUN=1
+  catat "VRAM: $ERR_BARU error alokasi baru di $N/$TARGET baris (arena=${ARENA}GB pp=$PP)"
+elif [ "$HIDUP" -eq 0 ]; then
+  catat "pengawas MATI di $N/$TARGET (arena=${ARENA}GB pp=$PP)"
+fi
+
+if [ "$PERLU_TURUN" -eq 1 ]; then
+  if [ "$N_UBAH" -ge "$MAKS_UBAH" ]; then
+    menyerah_tapi_jaga "sudah $N_UBAH kali menurunkan setelan, error masih muncul"
+  fi
+  if [ "$ARENA" -gt "$ARENA_MIN" ]; then
+    BARU=$(( ARENA - LANGKAH_TURUN )); [ "$BARU" -lt "$ARENA_MIN" ] && BARU=$ARENA_MIN
+    catat "  -> arena ${ARENA}GB turun ke ${BARU}GB"
+    ARENA=$BARU
+  elif [ "$PP" -gt 1 ]; then
+    # Arena sudah di batas bawah. Kurangi konfigurasi per proses: proses baru
+    # mereset arena, jadi ia terisi lebih lambat. Biayanya muat model ulang
+    # (~9,6 menit untuk INT8), makanya ini langkah kedua, bukan pertama.
+    BARU=$(( PP - 1 ))
+    catat "  -> arena sudah minimum; PER_PROSES $PP turun ke $BARU"
+    PP=$BARU
+  else
+    menyerah_tapi_jaga "arena=${ARENA}GB dan PER_PROSES=1 sudah minimum"
+  fi
+  N_UBAH=$(( N_UBAH + 1 ))
+fi
+
+# ---- matikan rantai dengan urutan yang benar --------------------------------
+# pengawas -> jalankan_fp16.sh -> python. Kalau hanya python yang dimatikan,
+# jalankan_fp16.sh yang yatim akan menelurkan worker baru dan menghasilkan DUA
+# worker di satu GPU. Terbukti 13 Sep 2026.
+for POLA in "bash pengawas_fp16.sh" "jalankan_fp16.sh" "mass_loglik"; do
+  for P in $(pgrep -f "$POLA" 2>/dev/null); do kill -TERM "$P" 2>/dev/null; done
+  sleep 6
+  for P in $(pgrep -f "$POLA" 2>/dev/null); do kill -9 "$P" 2>/dev/null; done
+  sleep 2
+done
+
+# ---- bersihkan ekor CSV yang mungkin terpotong ------------------------------
+"$PY" - "$OUT" <<'PY' 2>/dev/null
+import csv, sys, os
+f = sys.argv[1]
+if os.path.exists(f):
+    r = list(csv.DictReader(open(f, newline="", encoding="utf-8")))
+    bad = [i for i, x in enumerate(r) if len(x) != 34 or any(v is None for v in x.values())]
+    if bad and r:
+        g = [x for i, x in enumerate(r) if i not in set(bad)]
+        w = csv.DictWriter(open(f, "w", newline="", encoding="utf-8"), fieldnames=list(r[0].keys()))
+        w.writeheader(); w.writerows(g)
+        print(f"ekor terpotong dibuang: {len(bad)}")
+PY
+
+# ---- hidupkan lagi dengan setelan terbaru ----------------------------------
+WM=$(stat -c %s "$KERJA" 2>/dev/null || echo 0)   # watermark baru = sekarang
+simpan_state
+cd "$ROOT" || exit 1
+PRECISION=${PRECISION:-int8} \
+LANGKAH=${LANGKAH:-1} N_CFG=${N_CFG:-288} BITS=${BITS:-0-7} RUNS=${RUNS:-2} \
+PER_PROSES=$PP ORT_GPU_MEM_LIMIT_GB=$ARENA FIDELITY_POOL_GB=$ARENA \
+MULAI=${MULAI:-0} AKHIR=${AKHIR:-${N_CFG:-288}} \
+OUT=$OUT MAKS_PUTARAN=${MAKS_PUTARAN:-6} \
+  setsid nohup bash pengawas_fp16.sh >> "$LOGS/pengawas.log" 2>&1 < /dev/null 9>&- &
+disown
+# MULAI/AKHIR WAJIB ikut diteruskan. Tanpa itu, pengawas yang dihidupkan ulang
+# memakai default 0..N_CFG — pada setup sharding, mesin yang seharusnya hanya
+# mengerjakan config 144..287 akan mulai dari 0 dan MENGERJAKAN ULANG seluruh
+# rentang mesin lain. Duplikat diam-diam, dan baru ketahuan saat menggabung CSV.
+#
+# 9>&- WAJIB. Tanpa itu pengawas mewarisi fd kunci flock dan menahannya selama
+# run berjalan (berjam-jam). Akibatnya setiap pemanggilan penjaga berikutnya
+# gagal mendapat kunci dan keluar diam-diam — penjaga LUMPUH PERMANEN setelah
+# restart pertama, tanpa satu pun pesan. Terbukti pada uji 14 Sep 2026.
+sleep 6
+if pgrep -f "bash pengawas_fp16.sh" >/dev/null 2>&1; then
+  catat "  pengawas hidup lagi (arena=${ARENA}GB pp=$PP, perubahan ke-$N_UBAH)"
+else
+  catat "  GAGAL menghidupkan pengawas"
+fi

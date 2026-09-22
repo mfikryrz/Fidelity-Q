@@ -1,0 +1,2684 @@
+1
+00:01:59,540 --> 00:02:05,250
+R16, walaupun ga random, indexnya udah kita running setelah kita submit paper aja
+
+2
+00:02:05,250 --> 00:02:16,849
+jadi kita bisa ke update beberapa, itu belakangan aja kita belum ada
+
+3
+00:02:16,849 --> 00:02:24,400
+yang int 8 udah keliatan oke, ini datanya tinggal di itu, tinggal di running masal
+
+4
+00:02:24,400 --> 00:02:26,400
+running masal butuh berapa ya budgetnya?
+
+5
+00:02:26,400 --> 00:02:37,569
+running masal, kayak kemarin aja dulu mas, kasih 50 dolar nanti kalau selama running masih kurang aku kembali
+
+6
+00:02:37,569 --> 00:02:42,110
+Oke, oke. Dan aku ada, oke. Boleh, boleh.
+
+7
+00:02:42,110 --> 00:02:48,250
+Nah, ini ada beberapa lagi. Aku suka metric yang kamu tambah di sini, yang apa?
+
+8
+00:02:48,250 --> 00:02:53,699
+Yang golden, bentar mana ya. Golden letter, faulty letter, kalau boleh itu ditambah juga.
+
+9
+00:02:53,699 --> 00:02:58,020
+Ditambah dihub juga, soalnya ini E8 nggak ada. Itu menurutku metric yang lumayan bagus.
+
+10
+00:02:58,020 --> 00:03:05,539
+Jadi itu disimpan juga. Tapi setelah itu, sudah bagus. Setiap baris sudah random ya prom-nya.
+
+11
+00:03:05,539 --> 00:03:09,979
+ini yang inti lapan, ini yang inti lapan yang kira-kira kukasikan
+
+12
+00:03:09,979 --> 00:03:13,659
+iya, setiap baris udah beda kan?
+
+13
+00:03:13,659 --> 00:03:20,300
+dan setiap lokasi udah kuecek juga, udah random juga kan disini
+
+14
+00:03:20,300 --> 00:03:23,330
+random juga ini, bagus
+
+15
+00:03:23,330 --> 00:03:26,530
+dan apa, incek wh, random, oke
+
+16
+00:03:26,530 --> 00:03:28,530
+nah ini juga bagus
+
+17
+00:03:28,530 --> 00:03:31,879
+dan juga, intinya
+
+18
+00:03:31,879 --> 00:03:35,879
+dan juga setiap bit di cek kan
+
+19
+00:03:35,879 --> 00:03:40,330
+oh ini bit position kamu cek random ya? gak semua sama gitu?
+
+20
+00:03:40,330 --> 00:03:43,219
+iya
+
+21
+00:03:43,219 --> 00:03:46,219
+boleh samain gak jumlah contoh kayak yang disini kan?
+
+22
+00:03:46,219 --> 00:03:50,219
+semua bit 1, semua terus bit 2, nah ini kayak gini kayak gini
+
+23
+00:03:50,219 --> 00:03:52,340
+gimana maksudnya?
+
+24
+00:03:52,340 --> 00:03:53,340
+jadi kayak apa?
+
+25
+00:03:53,340 --> 00:03:57,340
+jadi misal kamu inject, kamu inject per fault model itu jumlah bitnya sama gitu
+
+26
+00:03:57,340 --> 00:03:59,590
+jadi apa?
+
+27
+00:03:59,590 --> 00:04:01,590
+contoh ini kan
+
+28
+00:04:01,590 --> 00:04:11,389
+eh 3, 2, 1, no no
+
+29
+00:04:11,389 --> 00:04:16,759
+Gak, maksudku setiap kali kamu running itu fix off di bit ke berapa gitu, ngerti kan?
+
+30
+00:04:18,420 --> 00:04:20,720
+Berarti kalau bit position ini nggak random ya?
+
+31
+00:04:22,370 --> 00:04:24,370
+Bit positionnya nggak random, nggak random
+
+32
+00:04:26,339 --> 00:04:28,339
+Bit number berapa, Mas?
+
+33
+00:04:29,810 --> 00:04:30,310
+Kenapa?
+
+34
+00:04:30,709 --> 00:04:33,209
+Pengennya bit number berapa, position berapa
+
+35
+00:04:36,329 --> 00:04:38,629
+Oh, FP-16 gitu juga? Uduh, kenapa ya ini kayak banyak?
+
+36
+00:04:40,639 --> 00:04:42,740
+Kenapa selalu banyak gitu ya? Requirements ya?
+
+37
+00:04:43,639 --> 00:04:45,040
+Tapi begini, masalahnya apa ya?
+
+38
+00:04:48,889 --> 00:04:54,379
+Mau ya cek dulu bit yang kalau begitu, masalahnya itu apa?
+
+39
+00:04:54,379 --> 00:05:07,879
+Jadi setiap apa? Seperti yang remus yang aku kasih kemarin kan
+
+40
+00:05:07,879 --> 00:05:11,199
+Setiap fault model itu jumlah bit yang di cek kan sama kan
+
+41
+00:05:11,199 --> 00:05:13,350
+Berarti
+
+42
+00:05:14,500 --> 00:05:24,779
+Ehm, sesuatu penyempurnaannya
+
+43
+00:05:24,779 --> 00:05:28,120
+Aku kayak takutnya apa ya? Kayak setiap kali liat baru
+
+44
+00:05:28,120 --> 00:05:29,920
+Takutnya kan ada yang berubah lagi kan?
+
+45
+00:05:29,920 --> 00:05:31,360
+Iya, ngomong gitu mas
+
+46
+00:05:31,839 --> 00:05:35,759
+Iya, aku ngerti kok maksudnya ini tinggal running kan tapi
+
+47
+00:05:35,759 --> 00:05:39,259
+Kenapa setiap kali running ada yang itu ya? Kayak ada yang beda ya?
+
+48
+00:05:39,259 --> 00:05:44,579
+Aku kasih, mau nggak aku kasih kayak data lama terus kamu tinggal kayak sesuaiin kayak formatnya gimana
+
+49
+00:05:45,019 --> 00:05:46,800
+Oh, ada ya?
+
+50
+00:05:46,800 --> 00:05:49,949
+Ada, ada yang lama.
+
+51
+00:05:49,949 --> 00:05:53,620
+Yang lama ini aku yang jalanin apa?
+
+52
+00:05:53,620 --> 00:05:57,620
+Nggak, kamu bentar ini aku mau tunjuk kamu kayak gimana.
+
+53
+00:05:57,620 --> 00:05:58,300
+Yang dulu.
+
+54
+00:05:58,300 --> 00:06:01,980
+Data lama itu aku yang pernah jalanin apa?
+
+55
+00:06:01,980 --> 00:06:05,709
+Nggak, nggak, ini aku yang jalanin dulu.
+
+56
+00:06:05,709 --> 00:06:08,069
+Jadi, contoh kayak gini kan.
+
+57
+00:06:08,069 --> 00:06:16,160
+Yang jelas, faulty indices udah benar.
+
+58
+00:06:16,160 --> 00:06:18,199
+Kamu faulty indices-nya udah benar.
+
+59
+00:06:18,199 --> 00:06:20,879
+Ini udah fix, nggak mungkin berubah lagi.
+
+60
+00:06:20,879 --> 00:06:34,220
+Vulti index-nya kamu, udah bener nih, buat yang 8, Vulti index-nya udah bener, Vulti index, ini udah bener, Inject Quarters itu Vulti index, bener kamu.
+
+61
+00:06:34,220 --> 00:06:40,889
+Terus, ya golden output itu tambahin, ini kamu catetin ya?
+
+62
+00:06:40,889 --> 00:06:42,399
+Apa mas?
+
+63
+00:06:42,399 --> 00:06:55,459
+Yang, tolong catet ini ya, jadi entar, atau, apa, kita checklist ya, setiap, setiap apa, setiap kolom disini gitu.
+
+64
+00:06:55,459 --> 00:07:04,180
+jadi column faulty indexes sudah benar, faulty indexes benar
+
+65
+00:07:04,180 --> 00:07:09,420
+terus golden output masih belum ada
+
+66
+00:07:09,420 --> 00:07:15,899
+golden letter itu masih belum ada
+
+67
+00:07:15,899 --> 00:07:17,990
+seperti yang di FP16 ini
+
+68
+00:07:17,990 --> 00:07:21,990
+jadi yang harusnya ada hurufnya itu terus diubah
+
+69
+00:07:21,990 --> 00:07:30,300
+golden letter kamu extract cuma cari logit yang paling tinggi kan
+
+70
+00:07:30,300 --> 00:07:31,300
+dari semua ini kan
+
+71
+00:07:31,300 --> 00:07:32,300
+iya
+
+72
+00:07:32,300 --> 00:07:37,949
+Nah, lakuin hal yang sama tapi bikin kolom-kolom aja supaya gampang kita nge-parsenya
+
+73
+00:07:37,949 --> 00:07:39,149
+Atau kita coba pahaminya
+
+74
+00:07:39,149 --> 00:07:42,930
+Jadi, golden letter ditambah
+
+75
+00:07:42,930 --> 00:07:44,449
+God ditambah
+
+76
+00:07:44,449 --> 00:07:45,730
+Ditambah
+
+77
+00:07:45,730 --> 00:07:51,790
+Terus selain itu
+
+78
+00:07:51,790 --> 00:08:02,079
+Inti-inti ini udah satu paket ya
+
+79
+00:08:02,079 --> 00:08:04,079
+Golden Output, Golden Letter
+
+80
+00:08:04,079 --> 00:08:06,850
+Tidak, dan Output udah sama
+
+81
+00:08:06,850 --> 00:08:08,980
+Udah tinggal ditambah
+
+82
+00:08:08,980 --> 00:08:11,459
+Terus logits-nya, kamu udah ada
+
+83
+00:08:11,459 --> 00:08:14,180
+Ini kita pake ini aja
+
+84
+00:08:14,180 --> 00:08:18,019
+Pake notasi, apa pake nama kolomnya supaya jelas
+
+85
+00:08:18,019 --> 00:08:36,190
+Jadi column G dan H harus ditambah, tapi faulty indexes F itu sudah benar, is invalid, is mismatch, itu nggak usah, inject type.
+
+86
+00:08:36,190 --> 00:08:44,990
+Nah intinya begini, kamu mending kalau inject si itu satu fault model aja tapi kayak beberapa bit sekaligus gitu, eh satu bit yang sama terus gitu.
+
+87
+00:08:44,990 --> 00:08:52,389
+Jadi contoh kamu inject si, kamu ingat kan aku bilang setiap layer itu kita inject setiap fault model kan?
+
+88
+00:08:52,389 --> 00:08:58,990
+Terus setiap volt model itu kita inject suatu bit tertentu beberapa kali, ingat kan?
+
+89
+00:08:58,990 --> 00:09:09,899
+Nah, di sini karena aku running si CNN pasti cepet kan running-nya, jadi aku bisa running kayak 50 atau 60 gitu
+
+90
+00:09:09,899 --> 00:09:19,500
+Tapi waktu itu kita spakatnya itu berapa total bit, berapa total injection per bit, kok kamu ingat?
+
+91
+00:09:19,500 --> 00:09:22,179
+6 ya?
+
+92
+00:09:22,179 --> 00:09:25,740
+oh inget gak? atau 5 ya?
+
+93
+00:09:25,740 --> 00:09:29,019
+6 kok
+
+94
+00:09:29,019 --> 00:09:36,220
+perkiraan jumlah experiment buat INT-8 itu kira-kira berapa?
+
+95
+00:09:36,220 --> 00:09:42,090
+kayak FP16 43 ribu
+
+96
+00:09:42,090 --> 00:09:48,049
+yang FP16 43 ribu ya? artinya yang INT-8 setengahnya kan?
+
+97
+00:09:48,049 --> 00:09:49,549
+oh bukannya disamain ya?
+
+98
+00:09:49,549 --> 00:09:50,549
+setengahnya kan?
+
+99
+00:09:50,549 --> 00:09:52,549
+bukannya disamain ya hitungannya?
+
+100
+00:09:52,549 --> 00:09:55,960
+kayaknya kita setengah deh
+
+101
+00:09:55,960 --> 00:09:58,820
+soalnya kan jumlah bitnya
+
+102
+00:09:58,820 --> 00:10:00,820
+fp 16
+
+103
+00:10:00,820 --> 00:10:08,070
+kan setengahnya
+
+104
+00:10:08,070 --> 00:10:10,070
+sekarang aku liat rewire yang lama
+
+105
+00:10:10,070 --> 00:10:15,139
+tapi masalah
+
+106
+00:10:15,139 --> 00:10:17,139
+utama itu sih kayak apa
+
+107
+00:10:17,139 --> 00:10:19,139
+bit positionnya nih
+
+108
+00:10:19,139 --> 00:10:23,129
+berarti mau setiap
+
+109
+00:10:23,129 --> 00:10:25,129
+layer
+
+110
+00:10:25,129 --> 00:10:27,129
+setiap jenis layer hold
+
+111
+00:10:27,129 --> 00:10:29,129
+itu bitnya itu disamain
+
+112
+00:10:29,129 --> 00:10:31,129
+dulu ya misalnya kayak
+
+113
+00:10:31,129 --> 00:10:33,129
+input
+
+114
+00:10:33,129 --> 00:10:41,450
+wake, wake 16, beat flip, di beat position 0, terus eksperimen selanjutnya, beat 1, gitu ya mas?
+
+115
+00:10:41,450 --> 00:10:44,210
+iya iya, begitu-begitu, iya
+
+116
+00:10:44,210 --> 00:10:45,409
+menarik gitu
+
+117
+00:10:45,409 --> 00:10:50,990
+begitu persis, jadi contoh ini yang diinjek dulu kan
+
+118
+00:10:50,990 --> 00:10:55,470
+coba di praktekin yang paper results, mas
+
+119
+00:10:55,470 --> 00:11:03,309
+maksudnya yang takut itu kan, kayak semuanya banyak yang harus dirubah kan, dari apa?
+
+120
+00:11:03,309 --> 00:11:05,710
+yang aku bilang kan masih banyak kan yang perlu diubah kan
+
+121
+00:11:05,710 --> 00:11:11,049
+Coba kita coba simulasi yang di Paper Results, coba.
+
+122
+00:11:11,049 --> 00:11:12,370
+Maksudnya Paper Results?
+
+123
+00:11:12,370 --> 00:11:17,340
+Yang ditab, yang kemarin yang YNT8.
+
+124
+00:11:17,340 --> 00:11:26,399
+Yang ini? Nah, disini kan, ini aku kasih contoh, aku kasih contoh aja.
+
+125
+00:11:26,399 --> 00:11:37,559
+Kalau kita filter by input kan, filter by input kan kayak ginikan.
+
+126
+00:11:37,559 --> 00:11:42,500
+Disini kan bit yang mana yang diinject itu random kan.
+
+127
+00:11:42,500 --> 00:11:48,500
+Tapi harusnya setiap bit itu diinject beberapa kali gitu, tapi sama jumlah injectionnya.
+
+128
+00:11:48,500 --> 00:11:51,500
+Jadi, harusnya bit 1 itu contoh ya.
+
+129
+00:11:51,500 --> 00:11:58,500
+Ini kayak kalau kamu setting jumlah injection bitnya contoh 5 kali artinya harus ada kayak ada 5 kali gitu ada 0 gitu.
+
+130
+00:11:58,500 --> 00:12:01,139
+Contoh kayak gitu.
+
+131
+00:12:01,139 --> 00:12:05,139
+Jangan nggak random, tapi nggak random nih ya. Jumlah bit positionnya nggak random.
+
+132
+00:12:05,139 --> 00:12:08,620
+Kenapa ya? Ini kayak banyak banget yang harus di check ya.
+
+133
+00:12:08,620 --> 00:12:19,539
+Sebenernya apa ya, concern utamaku sebenernya kita bisa menyempurnakan eksperimen, framework eksperimennya
+
+134
+00:12:19,539 --> 00:12:22,539
+Cuma kayak masalahnya itu masalah komputasi gitu
+
+135
+00:12:22,539 --> 00:12:27,919
+Tapi kan kita pasti uji coba beberapa kali lagi kan
+
+136
+00:12:27,919 --> 00:12:31,919
+Berarti misalnya ini input pertama di posisinya 0
+
+137
+00:12:31,919 --> 00:12:37,919
+Nanti eksperimen yang selanjutnya input yang apa sih, ini berapa baris?
+
+138
+00:12:37,919 --> 00:12:48,970
+ini ada 9 data yang ditunjuk di sini kan
+
+139
+00:12:48,970 --> 00:12:55,090
+berarti 9 data selanjutnya yang input bit position 1 gitu ya maksudnya
+
+140
+00:12:55,090 --> 00:13:02,120
+iya jadi mulai input-input, bit position 0, 1, 2, sampe 7, soalnya kan 8 bit kan jadi 0 sampe 7
+
+141
+00:13:02,120 --> 00:13:12,500
+Terus weight 0 sampai U, terus input 16, weight 16, dan seterusnya. Tapi dilakukan buat setiap layer gitu, ngerti kan?
+
+142
+00:13:12,500 --> 00:13:28,110
+Oh berarti, berarti input, apa, eksperimen pertama dibuat untuk beat position 0 dulu, mau itu input, weight, weight 16, beat flip gitu ya?
+
+143
+00:13:28,110 --> 00:13:29,269
+Ya bener.
+
+144
+00:13:29,269 --> 00:13:34,870
+baru eksperimen kedua, reposition kedua atau ke satu
+
+145
+00:13:34,870 --> 00:13:39,570
+iya, atau aku kasih kamu link kesini gimana?
+
+146
+00:13:39,570 --> 00:13:42,960
+iya share, share aja nih rotennya juga
+
+147
+00:13:42,960 --> 00:13:48,559
+iya, maksudnya kamu pasti langsung keliatankan kayak apa
+
+148
+00:13:48,559 --> 00:13:52,759
+polanya gimana disini untuk mengatur eksperimennya
+
+149
+00:13:52,759 --> 00:13:59,990
+tapi setiap layer dan setiap vault model 4 atau 5 aja deh inyeksinya
+
+150
+00:13:59,990 --> 00:14:08,740
+ada berapa layer di lama? ada berapa layer yang di kamu inject?
+
+151
+00:14:08,740 --> 00:14:26,509
+ada di 9 atau 15 layer
+
+152
+00:14:26,509 --> 00:14:30,509
+ini kita bisa lihat disini, ada berapa perasi disini?
+
+153
+00:14:30,509 --> 00:14:39,519
+FP16 cuma 10 layer
+
+154
+00:14:39,519 --> 00:14:44,519
+soalnya ini FP16 apa INT?
+
+155
+00:14:44,519 --> 00:14:49,059
+FP16 ini, ini FP16
+
+156
+00:14:49,059 --> 00:14:52,539
+oh atau mungkin filteringnya beda
+
+157
+00:14:52,539 --> 00:15:21,799
+jumlah layernya lebih banyak kok
+
+158
+00:15:21,799 --> 00:15:26,139
+jumlah layernya lebih banyak
+
+159
+00:15:26,139 --> 00:15:30,980
+P16
+
+160
+00:15:30,980 --> 00:15:35,110
+soalnya layer ini doang yang bisa diinject
+
+161
+00:15:35,110 --> 00:15:38,169
+yang bisa diinject
+
+162
+00:15:38,169 --> 00:15:52,200
+itu deh apa
+
+163
+00:15:52,200 --> 00:15:55,200
+menurutku walaupun deadline nya udah oktober
+
+164
+00:15:55,200 --> 00:15:57,200
+kayaknya apa
+
+165
+00:15:57,200 --> 00:15:59,389
+harus diubah dulu
+
+166
+00:15:59,389 --> 00:16:01,389
+bukan harus diubah juga sih
+
+167
+00:16:01,389 --> 00:16:03,389
+tapi apa
+
+168
+00:16:03,389 --> 00:16:05,970
+kayaknya kita
+
+169
+00:16:05,970 --> 00:16:12,769
+Kayaknya kalo mau tangkap hitam mitsen gak bisa up topper juga, eksperimentasinya harus di...
+
+170
+00:16:12,769 --> 00:16:15,769
+harus apa? Kayak dimulai ulang. Bukan dimulai ulang, tapi kayak...
+
+171
+00:16:15,769 --> 00:16:18,370
+harus dikocampur tangan ke depannya.
+
+172
+00:16:18,370 --> 00:16:20,769
+Saya juga salah tegut juga gak sih, soalnya aku...
+
+173
+00:16:20,769 --> 00:16:22,769
+sebenernya eksperimennya banyak speknya kan.
+
+174
+00:16:22,769 --> 00:16:24,419
+Jadi apa?
+
+175
+00:16:24,419 --> 00:16:26,679
+Maaf, di luar lagi ada konstruksi.
+
+176
+00:16:26,679 --> 00:16:28,779
+Kedengeran ada konstruksinya.
+
+177
+00:16:28,779 --> 00:16:33,799
+Aku juga salah kemarin soalnya apa?
+
+178
+00:16:33,799 --> 00:16:49,129
+seharusnya aku kasih spek-speknya yang lebih specific dan konkrit
+
+179
+00:16:49,129 --> 00:16:52,529
+dan kayaknya kalau melihat timeline, oktober nggak bisa dudek sih
+
+180
+00:16:52,529 --> 00:16:58,879
+jadi aku harus konsultasi dulu sama supervisor-supervisor di atas dulu
+
+181
+00:16:58,879 --> 00:17:06,259
+aku mau lihat dulu kayak, kalau kita melihat dulu kayak proyeknya gimana
+
+182
+00:17:06,259 --> 00:17:12,259
+Sebenarnya begini ya, aku kan lagi juggling no project, tapi menurutku yang lebih berat itu masalah uangnya gitu.
+
+183
+00:17:12,259 --> 00:17:16,420
+Soalnya kan framework yang kita pakai buat running experiment, bukan framework.
+
+184
+00:17:16,420 --> 00:17:20,420
+Platform yang kita pakai buat running experiment-nya kan fast AI kan itu udah paling efficient kan.
+
+185
+00:17:20,420 --> 00:17:24,420
+Buat ada hasil dan apa segala. Soalnya kan apa, APC dikel.
+
+186
+00:17:24,420 --> 00:17:31,420
+Seperti yang kamu mau lihat kan, selalu maintenance. Aku juga waktu aku S1, selalu maintenance juga APC dikel.
+
+187
+00:17:31,420 --> 00:17:39,450
+Jadi akhirnya apa ya, jadi udah dari aku S1, gak bisa diandalkan tuh, entah itu masalah birokrasi atau maintenance.
+
+188
+00:17:39,450 --> 00:17:46,450
+Jadi ya, menurutku, ini bukan kesalahanmu ya, tapi ini aku apa, aku salah.
+
+189
+00:17:46,450 --> 00:17:50,450
+Dan juga kayak apa ya, dan juga kan situasi kondisinya kan yang bikin lebih ribet.
+
+190
+00:17:50,450 --> 00:17:57,450
+Jadi apa, mending aku kayak ngomong dulu sama ke laborator, soalnya kayak apa ya, menurutku ini sekarang ada dua hal yang susah.
+
+191
+00:17:57,450 --> 00:18:06,569
+Pertama, kalau mau dilanjut, proyeknya harus dirombak, eksperimentasinya itu supaya setiap data udah jelas, kita koleksinya gimana.
+
+192
+00:18:07,329 --> 00:18:12,650
+Dan yang kedua, emang itu sih, resource buat running eksperimen sih.
+
+193
+00:18:13,250 --> 00:18:17,450
+Ya itu buat sekarang kita kan pakai fastaya itu kayak paling cepet tapi paling bakar duit.
+
+194
+00:18:20,569 --> 00:18:26,450
+Jadi mungkin buat sekarang, aku mau konsultasi dulu sama kolaborator kalau ada kabar lain.
+
+195
+00:18:26,450 --> 00:18:28,450
+nanti aku kabari lagi
+
+196
+00:18:28,450 --> 00:18:30,450
+tapi emang itu sih kayak apa
+
+197
+00:18:30,450 --> 00:18:32,450
+berat soalnya kayak kalo mau
+
+198
+00:18:32,450 --> 00:18:34,579
+running experiment terus apa
+
+199
+00:18:34,579 --> 00:18:36,579
+masalahnya ini ya, kita gak bisa
+
+200
+00:18:36,579 --> 00:18:38,579
+kita masalahnya gak bisa eksperimentasi
+
+201
+00:18:38,579 --> 00:18:40,579
+tanpa bakar duit
+
+202
+00:18:40,579 --> 00:18:42,680
+masalahnya kan
+
+203
+00:18:42,680 --> 00:18:44,680
+kita mau coba data sample kecil pun
+
+204
+00:18:44,680 --> 00:18:46,680
+kita masih harus bakar duit juga
+
+205
+00:18:46,680 --> 00:18:49,000
+jadi kayak apa ya, aku harus kayak
+
+206
+00:18:49,000 --> 00:18:51,000
+mau konsultasi dulu sama mereka untuk cari solusi
+
+207
+00:18:51,000 --> 00:18:53,190
+jadi apa
+
+208
+00:18:53,190 --> 00:18:55,250
+apa ya
+
+209
+00:18:55,250 --> 00:18:59,369
+intinya kalau apa intinya kayak buat buat daten yang oktober
+
+210
+00:18:59,369 --> 00:19:04,920
+abaikan dulu aja deh kayak aku ini aku harus ngomong serius sama kelaborator-kelaborator yang ada
+
+211
+00:19:04,920 --> 00:19:08,160
+ini aku nanti mau ngomong serius sama mereka
+
+212
+00:19:08,160 --> 00:19:10,440
+soalnya ini loh kayak
+
+213
+00:19:10,440 --> 00:19:14,279
+resource itu kayak menjadi bottleneck yang paling besar dengan aku kayak apa ya
+
+214
+00:19:14,279 --> 00:19:16,960
+aku udah coba dari sisi ku aku udah coba minta dari dua
+
+215
+00:19:16,960 --> 00:19:20,119
+aku kan ada terlibat di restitusi di sini
+
+216
+00:19:20,119 --> 00:19:26,319
+dua-duanya nggak bisa memberi compute diluar orang-orang yang staff-staff mereka gitu
+
+217
+00:19:26,319 --> 00:19:31,319
+Jadi kayak apa ya, ya udah harus konsultasi dulu sama kolaborator-kolaborator lain
+
+218
+00:19:31,319 --> 00:19:33,319
+Kira-kira harus gimana gitu
+
+219
+00:19:33,319 --> 00:19:37,529
+Ya udah, maaf ya pikir kalau aku kayak buang waktu mau ya
+
+220
+00:19:37,529 --> 00:19:42,099
+Jadi I do for nothing
+
+221
+00:19:42,099 --> 00:19:43,099
+Kenapa?
+
+222
+00:19:43,099 --> 00:19:45,099
+I do for nothing itu
+
+223
+00:19:45,099 --> 00:19:48,190
+Ya ini ya mau cari dulu solusi
+
+224
+00:19:48,190 --> 00:19:49,190
+Tapi apa ya, kayak apa?
+
+225
+00:19:49,190 --> 00:19:54,190
+Kalau kamu masih mau lanjut topik ini sebagai iskripsi mu itu bisa dan aku bisa advice
+
+226
+00:19:54,190 --> 00:20:00,490
+Cuma kayak buat proyek ini sebagai publikasi, aku harus cari solusi dulu.
+
+227
+00:20:00,490 --> 00:20:10,319
+Jadi kalau kamu mau ini sebagai tugas akhirmu, kita tinggal rapat aja sama Bu Rivki, aku nggak apa-apa.
+
+228
+00:20:10,319 --> 00:20:13,319
+Soalnya kan kamu selama ini membantu, kamu selama ini juga membantu.
+
+229
+00:20:13,319 --> 00:20:16,319
+Dan juga kayak ini suatu hari akan dipublikasikan.
+
+230
+00:20:16,319 --> 00:20:22,319
+Cuma kayak apa, yang aku bisa jamin ke kamu 100% kalau kamu mau dibimbingin ini,
+
+231
+00:20:22,319 --> 00:20:27,720
+problem ini dibimbing sebagai buat tugas IKMU itu bisa juga.
+
+232
+00:20:27,720 --> 00:20:36,930
+Jadi itu mutlak bisa terjadi entah problem ini jadi publikasi atau enggak.
+
+233
+00:20:36,930 --> 00:20:43,130
+Tapi kayak apa, kalau mau kolaborator kasih aku kayak 2 hari, bukan 2 hari sih.
+
+234
+00:20:43,130 --> 00:20:55,750
+Soalnya yang aku lihat ya, kalau mau running lagi eksperimen-eksperimen itu
+
+235
+00:20:55,750 --> 00:20:58,609
+supaya FP16 dan int8-nya bagus tuh
+
+236
+00:20:58,609 --> 00:21:03,269
+kita harus lebih serius testing-nya
+
+237
+00:21:03,269 --> 00:21:05,470
+dan terutama
+
+238
+00:21:05,470 --> 00:21:10,390
+aku keluar dana pribadi harus 300 dolar minimal
+
+239
+00:21:10,390 --> 00:21:13,890
+jadi kayak apa ya?
+
+240
+00:21:13,890 --> 00:21:24,210
+HPC gak bisa juga
+
+241
+00:21:24,210 --> 00:21:25,210
+apa?
+
+242
+00:21:25,210 --> 00:21:27,210
+HPC gak bisa juga
+
+243
+00:21:27,210 --> 00:21:28,789
+iya
+
+244
+00:21:28,789 --> 00:21:34,960
+tapi emang waktu itu aku udah dapet
+
+245
+00:21:34,960 --> 00:21:38,039
+kalau mau dikumulatifin aku
+
+246
+00:21:38,039 --> 00:21:45,799
+2 tahun, ini kan dulu proyek utama, tapi karena tiba-tiba ada proyek lain kan yaudah ini disampingkan
+
+247
+00:21:45,799 --> 00:21:52,759
+tapi even then, aku kayaknya udah buang sampe 500, udah 500 lebih atau udah sampe 1000
+
+248
+00:21:52,759 --> 00:21:59,440
+jadi kayak apa ya, tinggal ini sebenernya kayak apa ya, aku mau ngobrol dulu sama mereka soalnya kayak apa ya
+
+249
+00:21:59,440 --> 00:22:05,920
+mereka kira kayak gampang kan, tapi sebenernya kayak requirement-nya berat juga
+
+250
+00:22:05,920 --> 00:22:16,069
+dan apa ya, mungkin kita bisa selesaiin dalam 200 dolar, aku gak apa-apa, kalau 200 kita bisa selesaiin
+
+251
+00:22:16,069 --> 00:22:24,069
+cuma kalau 200, aku ada plan sih kalau kita mau selesaiin dalam 200, cuma kayak aku butuh kayak apa?
+
+252
+00:22:24,069 --> 00:22:31,609
+cuma kayak apa? ini butuh seminggu kita berdua fokus, kita fully commit ke proyek ini gitu
+
+253
+00:22:31,609 --> 00:22:38,119
+seminggu aja bisa, tapi kayak kita berdua kayak harus on track selama seminggu itu
+
+254
+00:22:38,119 --> 00:22:43,759
+nah kalau begitu kira-kira jam 4, tau nggak apa-apa sih kayak udah 200
+
+255
+00:22:43,759 --> 00:22:48,799
+cuma kayak kita harus double down dari segi kayak waktu aku juga kayak mau ketemu kamu pagi dan malam
+
+256
+00:22:48,799 --> 00:22:51,990
+dua-duanya bisa setiap hari juga bisa sekarang, dan juga kayak apa?
+
+257
+00:22:51,990 --> 00:22:55,990
+dan juga kayak aku udah siap mekeluarin apa? funding bed resetnya
+
+258
+00:22:55,990 --> 00:23:01,079
+tapi kayak kita harus ketemu setiap hari at least satu minggu lah, segitu harusnya udah bisa
+
+259
+00:23:01,079 --> 00:23:07,240
+Benar-benar aku gak masalah mas, cuma bagian output expectation ini
+
+260
+00:23:07,240 --> 00:23:15,240
+Sebenarnya mas mengatakan, oke ini bagus-bagus sample step aku kasih itu
+
+261
+00:23:15,240 --> 00:23:21,240
+Bagusnya itu beneran bagus expected atau skilas jadinya kayak
+
+262
+00:23:21,240 --> 00:23:29,240
+Ya ini expected, sebenarnya ini bagus hasilnya, cuman experimentasinya harus konsisten ngerti kan
+
+263
+00:23:29,240 --> 00:23:33,400
+Jadi aku selalu kaya, I always do the numbers dari segi kaya faulty sampe goldennya
+
+264
+00:23:33,400 --> 00:23:35,119
+dan selalu as consistent
+
+265
+00:23:35,119 --> 00:23:40,559
+tapi masalahnya tuh, karena aku udah lakuin research sebelumnya dengan tatacara yang udah
+
+266
+00:23:40,559 --> 00:23:42,960
+aku udah punya prosedur mau tatacara lama
+
+267
+00:23:42,960 --> 00:23:47,480
+yang baru juga harus disesuaikan sama yang lama buat caranya, ngerti kan?
+
+268
+00:23:47,480 --> 00:23:49,839
+Jadi sebenernya bagus, cuma kaya apa ya
+
+269
+00:23:49,839 --> 00:23:52,720
+cuma kaya selalu aku, aduh
+
+270
+00:23:52,720 --> 00:23:54,480
+selalu aku kaya apa?
+
+271
+00:23:54,480 --> 00:23:58,599
+lupa kaya satu atau dua kaya variable gitu dan juga DNA kan
+
+272
+00:23:58,599 --> 00:24:02,039
+agak wasting your time juga, jadi aku minta maaf boleh tau aku
+
+273
+00:24:02,039 --> 00:24:04,039
+aku sadar itu kayak salah aku juga
+
+274
+00:24:04,039 --> 00:24:06,039
+tapi kayak apa ya
+
+275
+00:24:06,039 --> 00:24:08,039
+intinya kayak sekarang
+
+276
+00:24:08,039 --> 00:24:12,039
+masalahnya kayak bukan kalau framework-nya jadi atau nggak
+
+277
+00:24:12,039 --> 00:24:14,430
+masalahnya tuh
+
+278
+00:24:14,430 --> 00:24:16,430
+masalahnya tuh tinggal bikin semua konsisten
+
+279
+00:24:16,430 --> 00:24:20,430
+jadi aku bilang ke kamu 100% seserah engkau ini udah bener semua
+
+280
+00:24:20,430 --> 00:24:22,430
+tinggal bikin
+
+281
+00:24:22,430 --> 00:24:24,430
+implementasi reset apa?
+
+282
+00:24:24,430 --> 00:24:26,430
+eksperimentasinya itu akhirnya kayak apa?
+
+283
+00:24:26,430 --> 00:24:28,430
+konsisten sama semua yang aku lakuin sebelumnya
+
+284
+00:24:28,430 --> 00:24:43,920
+Nah kalau begitu, aku udah ngerti kan, jadi aku selalu kayak cek, soalnya begini ya, nilai vulnerabilitynya transformer biasa itu 3%,
+
+285
+00:24:43,920 --> 00:24:54,160
+buat lama itu 4-5% yang kamu dapat. Nah itu konsisten, kamu udah berapa kali running, aku selalu lihat angka-angkanya dan itu selalu konsisten selama ini.
+
+286
+00:24:54,160 --> 00:25:02,740
+Cuman masalahnya itu cara kita collect datanya itu ibaratnya itu kayak jadi nggak teratur kayak cara kita lakuin dulu, cara aku lakuin dulu, ngerti kan?
+
+287
+00:25:02,740 --> 00:25:04,740
+Yang cara dulu apa?
+
+288
+00:25:04,740 --> 00:25:18,049
+Ya yang aku jelasin tadi, yang setiap layer harus diuji, setiap vault model harus diuji dalam layer, dan setiap bit 0-7 harus di-check per layer
+
+289
+00:25:18,049 --> 00:25:25,200
+Udah sisa itu, udah sisa itu sebenernya yang tinggal dilakukan, begitu
+
+290
+00:25:25,200 --> 00:25:37,819
+jadi apa kita full seminggu begini aja deh apa begini aja deh kita full seminggu boleh engga kita ketemu pagi dan malam mu
+
+291
+00:25:37,819 --> 00:25:39,819
+pagi dan malam gimana?
+
+292
+00:25:39,819 --> 00:25:40,819
+boleh boleh
+
+293
+00:25:40,819 --> 00:25:44,819
+supaya kita full selesai dalam seminggu dan juga kita udah ga wasting time lagi
+
+294
+00:25:44,819 --> 00:25:48,099
+boleh boleh
+
+295
+00:25:48,099 --> 00:25:58,279
+oke jadi kita ketemu full seminggu yaudah dan begini supaya kita kamu kalo running di lokal running kayak berjam jam ya kalo kamu running di lokal ya
+
+296
+00:25:58,279 --> 00:26:00,279
+iya paling gini mas
+
+297
+00:26:00,279 --> 00:26:16,140
+ini mas, gimana kalau kita running nya kayak di collect atau kegel yang komputasinya yang bisa ambil GPU nya tinggi
+
+298
+00:26:16,140 --> 00:26:22,779
+tapi walaupun GPU nya tinggi tetep model nya gak bisa yang lama 7B sih
+
+299
+00:26:22,779 --> 00:26:30,619
+jadi bisa nggak kalau eksperimennya itu di samplingnya itu model rendah ya, nggak bisa juga ya?
+
+300
+00:26:30,619 --> 00:26:40,829
+menurutku kita udah coba itu kan, dan akhirnya itu kayak nggak, ada kemungkinan kayak hal-hal tak terduga terjadi kan
+
+301
+00:26:40,829 --> 00:26:46,509
+kalau kita tes di kecil tapi nggak terjadi, dan sebenarnya itu juga terjadi kan
+
+302
+00:26:46,509 --> 00:26:54,430
+jadi menurutku kayak apa, yaudah deh kayak apa 300, tapi 300 yaudah deh kayak 300 aja sekalian
+
+303
+00:26:54,430 --> 00:27:00,829
+Rp 50 dolar buat testing, dan sisanya itu kita full eksperimen masal gitu
+
+304
+00:27:00,829 --> 00:27:06,200
+Kalo kau kup, Rp 50 dolar buat testing di fastai cukup kan?
+
+305
+00:27:06,200 --> 00:27:09,400
+Kita smoke test smoke test terus sampe dapet gitu
+
+306
+00:27:09,400 --> 00:27:16,519
+Oke, jadi gini deh, kita harus bikin timeline, aku mau bikin di google calendar dulu
+
+307
+00:27:16,519 --> 00:27:22,680
+Soalnya apa? Jadi aku cerita ke kamu ya, jadi aku akhirnya pindah kota sebentara
+
+308
+00:27:22,680 --> 00:27:25,079
+Soalnya aku harus kerja sama kolaborator lain ku kan
+
+309
+00:27:25,079 --> 00:27:33,849
+Jadi kayak akhir aku hari-hari ini sibuk mengurus itu, jadi aku kayak sekarang lagi di California enggak di Chicago seperti biasa. Tapi apa? Bentar.
+
+310
+00:27:33,849 --> 00:27:38,269
+Kamu setiap hari apa bisa ketemu konsisten setiap hari jam berapa?
+
+311
+00:27:38,269 --> 00:27:55,279
+setiap hari kalau pagi itu jam 9 selain hari Rabu, Kamis, Jum'at gak bisa
+
+312
+00:27:55,279 --> 00:28:00,309
+jam 9 pagi ya, kalau Rabu, Kamis, Jum'at gak bisa
+
+313
+00:28:00,309 --> 00:28:04,309
+tapi jam 9 malam setiap hari bisa
+
+314
+00:28:04,309 --> 00:28:12,630
+terus kalau kalau siangnya paling ya paling jam 8 lah kecuali hari hari Rabu
+
+315
+00:28:12,630 --> 00:28:18,359
+hari Rabu itu nggak bisa ya soalnya mulai jam 7 pagi
+
+316
+00:28:18,359 --> 00:28:30,359
+oke oke bentar, ini aku mau jantualin dulu ya, ini aku juga mau kirim kamu apa buat
+
+317
+00:28:30,359 --> 00:28:41,750
+buat itu dulu, buat kirim baru langsung kita mulai smoke test, oke jadi ini 50 dolar pertama ya aku kirim
+
+318
+00:28:41,750 --> 00:28:42,750
+Oke.
+
+319
+00:28:42,750 --> 00:28:52,460
+Oke, udah aku kirim.
+
+320
+00:28:52,460 --> 00:29:12,930
+Kamu free mulai dari hari apa?
+
+321
+00:29:12,930 --> 00:29:19,809
+Ya kalau aku free jam 9.
+
+322
+00:29:19,809 --> 00:29:20,809
+Oke.
+
+323
+00:29:20,809 --> 00:29:21,809
+Setiap hari.
+
+324
+00:29:21,809 --> 00:29:22,809
+Setiap hari?
+
+325
+00:29:22,809 --> 00:29:23,970
+Setiap malam.
+
+326
+00:29:23,970 --> 00:29:24,970
+Kalau paginya.
+
+327
+00:29:24,970 --> 00:29:25,970
+Jam setiap malam ya?
+
+328
+00:29:25,970 --> 00:29:26,970
+Iya, setiap malam.
+
+329
+00:29:26,970 --> 00:29:38,359
+Research, meeting, meet and greet.
+
+330
+00:29:38,359 --> 00:30:09,869
+Terus selesainya tuh target hari Jumat minggu depan selesai?
+
+331
+00:30:09,869 --> 00:30:12,759
+Aman-aman.
+
+332
+00:30:12,759 --> 00:30:14,759
+atau sabtu ya, sabtu aja di
+
+333
+00:30:14,759 --> 00:30:19,509
+kita target hari sabtu
+
+334
+00:30:19,509 --> 00:30:21,509
+kita ketemu setiap hari jam
+
+335
+00:30:21,509 --> 00:30:23,700
+10.00 malam mu kan
+
+336
+00:30:23,700 --> 00:30:26,500
+jam 9.00 malam
+
+337
+00:30:26,500 --> 00:30:30,450
+jam 9.00 malam, oke oke
+
+338
+00:30:30,450 --> 00:30:32,869
+kita ketemu si setengah jam
+
+339
+00:30:32,869 --> 00:30:39,700
+coba kamu cek
+
+340
+00:30:39,700 --> 00:30:59,559
+kalender mu kalo ada begini
+
+341
+00:30:59,559 --> 00:31:03,759
+jadi kita harus on time ya
+
+342
+00:31:03,759 --> 00:31:05,759
+dua-duanya ya, aku
+
+343
+00:31:05,759 --> 00:31:07,759
+aku makal prioritasin apa
+
+344
+00:31:07,759 --> 00:31:09,759
+rapat ini sebelum apa-apa
+
+345
+00:31:09,759 --> 00:31:11,759
+dan i expect the same for you zone ya apa ya
+
+346
+00:31:11,759 --> 00:31:16,019
+Kamu sumbang tenaga, aku sumbang nasihatan juga, funding ya?
+
+347
+00:31:16,019 --> 00:31:17,339
+Oke, siap.
+
+348
+00:31:17,339 --> 00:31:20,339
+Kalau pagimu, jadinya berapa kamu pofrik?
+
+349
+00:31:20,339 --> 00:31:39,240
+Pagi 11 aja gimana, jadi misalnya kenapa jam 11 itu karena aku, karena malam kan kita meeting dan
+
+350
+00:31:39,240 --> 00:31:49,240
+paling jadinya jam 8 pagi itu aku coba lanjut, nah nanti jam 11 pagi aku laporin the results.
+
+351
+00:31:49,240 --> 00:32:00,559
+hari Rabu, hari Rabu, Kamis, Jum'at gak bisa jam 11
+
+352
+00:32:04,250 --> 00:32:08,380
+ini jam 9 malam artinya jam 11 siang ya?
+
+353
+00:32:08,380 --> 00:32:10,380
+tapi jam 11 siang kamu gak bisa ya buat karena kuliah
+
+354
+00:32:10,380 --> 00:32:12,569
+kalau agak pagi gimana?
+
+355
+00:32:12,569 --> 00:32:14,569
+agak pagi jam 8
+
+356
+00:32:14,569 --> 00:32:17,730
+bisa cuman di ragu doang sih gak bisa
+
+357
+00:32:23,730 --> 00:32:25,730
+waktu-waktu apa aja yang kamu gak ada kelas?
+
+358
+00:32:25,730 --> 00:32:33,990
+Waktu gak ada kelas tuh senin selasa itu seharian gak ada kelas, rabu tuh seharian
+
+359
+00:32:33,990 --> 00:32:36,990
+Kamu ada kelas sama Pak Alvian gak?
+
+360
+00:32:36,990 --> 00:32:39,759
+Bu Alvian gak ada
+
+361
+00:32:39,759 --> 00:32:41,789
+Pak Alvian, Pak Alvian
+
+362
+00:32:41,789 --> 00:32:45,779
+Alvian, ya emang ya bang ya
+
+363
+00:32:45,779 --> 00:32:51,440
+Ya udah, tapi kira-kira jam berapa kamu kayak free gitu
+
+364
+00:32:51,440 --> 00:32:54,440
+Gak ada ya, gak ada waktu satu jam yang kamu free gitu ya?
+
+365
+00:32:54,440 --> 00:32:56,440
+Senin selasa free dong
+
+366
+00:32:56,440 --> 00:32:59,440
+Cuman Rabu, Kamis, Jum'at itu...
+
+367
+00:33:00,440 --> 00:33:08,920
+Rabu itu seharian kuliah, Kamis itu jam 10.00 kuliah, Jum'at jam 9.00 kuliah.
+
+368
+00:33:08,920 --> 00:33:10,920
+Oke, jadi sering selasa kamu gak ada kelas kan?
+
+369
+00:33:10,920 --> 00:33:12,490
+Iya.
+
+370
+00:33:12,490 --> 00:33:13,490
+Oke, jam berapa itu?
+
+371
+00:33:13,490 --> 00:33:15,130
+Jam 11.00 siang.
+
+372
+00:33:15,130 --> 00:33:17,130
+Jam 11.00 siang?
+
+373
+00:33:17,130 --> 00:33:18,130
+Buat sering?
+
+374
+00:33:18,130 --> 00:33:19,130
+Iya boleh.
+
+375
+00:33:19,130 --> 00:33:37,859
+Selasa, oke oke.
+
+376
+00:33:37,859 --> 00:33:44,690
+Ini jam 11.00 atau jam 12.00?
+
+377
+00:33:44,690 --> 00:33:48,549
+Eh, iya jam 11.00.
+
+378
+00:33:48,549 --> 00:34:01,099
+Jam 11.00, oke.
+
+379
+00:34:01,099 --> 00:34:02,099
+Selendahan Rabu ya?
+
+380
+00:34:02,099 --> 00:34:04,119
+Senin selasa.
+
+381
+00:34:04,119 --> 00:34:05,730
+Senin selasa, oke.
+
+382
+00:34:05,730 --> 00:34:11,840
+ok, rabu sampai jumat ada waktu yang free gak?
+
+383
+00:34:11,840 --> 00:34:14,500
+namanya rabu dan jumat, buat rabu sampai jumat
+
+384
+00:34:14,500 --> 00:34:20,219
+rabu kayaknya enggak ada, paling sore di aku baru free
+
+385
+00:34:20,219 --> 00:34:24,559
+kalau kamis itu pokoknya sebelum jam 10
+
+386
+00:34:24,559 --> 00:34:31,090
+eh, kalau kamis pun itu nyata paginya ada rapat
+
+387
+00:34:31,090 --> 00:34:35,210
+ada penelitian juga sama dosen Pak Oh Yono
+
+388
+00:34:35,210 --> 00:34:40,469
+hari kamis itu pagi doang jam 8
+
+389
+00:34:40,469 --> 00:34:47,360
+paling beri nya hari kamis itu jam 12 ke atas
+
+390
+00:34:47,360 --> 00:34:55,340
+jam 11 bisa gak?
+
+391
+00:34:55,340 --> 00:34:59,340
+masih kuliah itu Pak Proc Eddy
+
+392
+00:34:59,340 --> 00:35:18,909
+yaudah dia jam 12
+
+393
+00:35:18,909 --> 00:35:23,909
+harinya kita selesai hari Rabu pagimu kita gak ketemu ya tapi gak apa-apa
+
+394
+00:35:23,909 --> 00:35:26,630
+ntar udah rani eksperimen masal bayi tuh
+
+395
+00:35:26,630 --> 00:35:28,789
+kalo jumat pagi?
+
+396
+00:35:28,789 --> 00:35:31,590
+jumat pagi bisa nih jam 8
+
+397
+00:35:31,590 --> 00:35:34,480
+jam 8 pagi bisa?
+
+398
+00:35:34,480 --> 00:35:56,469
+dan terakhir hari sabtu ketemu jam berapa?
+
+399
+00:35:56,469 --> 00:35:58,719
+jam 9 aja
+
+400
+00:35:58,719 --> 00:36:01,239
+jam 9 pagi?
+
+401
+00:36:01,239 --> 00:36:03,239
+sama hari banget sama ya?
+
+402
+00:36:03,239 --> 00:36:06,579
+ok, tolong kamu cek
+
+403
+00:36:06,579 --> 00:36:08,579
+tolong kamu cek itu dong
+
+404
+00:36:08,579 --> 00:36:10,579
+google kalendermu kalo semua udah benar
+
+405
+00:36:10,579 --> 00:36:12,579
+supaya udah set nih ga berubah-berubah
+
+406
+00:36:12,579 --> 00:36:14,639
+aku ga bakal
+
+407
+00:36:14,639 --> 00:36:21,239
+aku bakal prioritas serapat-serapat ini dan I expect kamu juga prioritas serapat-serapatnya ya
+
+408
+00:36:21,239 --> 00:36:23,469
+Oke
+
+409
+00:36:23,469 --> 00:36:25,469
+50 dolar udah aku kirim yang pertama
+
+410
+00:36:25,469 --> 00:36:27,469
+dan apa begini
+
+411
+00:36:27,469 --> 00:36:29,469
+jadi Vicky, aku cuma bilang ya
+
+412
+00:36:29,469 --> 00:36:34,269
+ini udah konsisten dari segi kayak off-voltnya berdampak ke outputnya seperti apa
+
+413
+00:36:34,269 --> 00:36:36,400
+ini udah konsisten
+
+414
+00:36:36,400 --> 00:36:40,400
+yang tinggal kita bikin konsisten itu berapa kali kita running eksperimennya
+
+415
+00:36:40,400 --> 00:36:48,059
+nah begini
+
+416
+00:36:48,059 --> 00:36:52,159
+pakai sheets ini sebagai patokan
+
+417
+00:36:52,159 --> 00:37:00,159
+pakai sheets ini sebagai patokan
+
+418
+00:37:00,159 --> 00:37:03,409
+aku udah kirim invite ke email ugemo
+
+419
+00:37:03,409 --> 00:37:05,409
+tinggal kamu pakai sheets ini sebagai patokan
+
+420
+00:37:05,409 --> 00:37:10,019
+biasanya data apa yang aku simpenin
+
+421
+00:37:10,019 --> 00:37:13,019
+kamu bisa download terus lempar ke AIU
+
+422
+00:37:13,019 --> 00:37:18,119
+tapi intinya begini
+
+423
+00:37:18,119 --> 00:37:22,900
+sekali draw
+
+424
+00:37:22,900 --> 00:37:24,539
+gak hapus ya
+
+425
+00:37:24,539 --> 00:37:26,539
+intinya apa
+
+426
+00:37:26,539 --> 00:37:28,539
+kamu masih ada gak foto waktu itu
+
+427
+00:37:28,539 --> 00:37:30,539
+yang kita pake buat, buat apa?
+
+428
+00:37:30,539 --> 00:37:32,599
+jumlah, buat running jumlah eksperimen
+
+429
+00:37:32,599 --> 00:37:34,860
+kayaknya di percakapan kita deh
+
+430
+00:37:34,860 --> 00:37:36,860
+oke, oke, oke
+
+431
+00:37:56,909 --> 00:37:59,320
+oke, oh kamu ada, boleh kirim gak di chat?
+
+432
+00:37:59,320 --> 00:38:18,059
+2x9x6x5
+
+433
+00:38:18,059 --> 00:38:20,059
+uh, boleh tunjuk gak?
+
+434
+00:38:20,059 --> 00:38:51,440
+uh, boleh tunjuk gak?
+
+435
+00:38:51,440 --> 00:38:54,460
+kali 9x6x8x5
+
+436
+00:38:54,460 --> 00:38:56,460
+ini aku, aku share screen lagi ya
+
+437
+00:38:56,460 --> 00:39:01,789
+oke, keliatan gak screen ku?
+
+438
+00:39:01,789 --> 00:39:06,860
+keliatan
+
+439
+00:39:06,860 --> 00:39:08,860
+ada apa? 32 layer kan?
+
+440
+00:39:08,860 --> 00:39:10,860
+32 layer kan, jadi lama
+
+441
+00:39:10,860 --> 00:39:14,239
+ada 32 layer
+
+442
+00:39:14,239 --> 00:39:17,710
+artinya buat setiap
+
+443
+00:39:17,710 --> 00:39:19,710
+32 layer ada
+
+444
+00:39:19,710 --> 00:39:22,480
+buat setiap 32 layer
+
+445
+00:39:22,480 --> 00:39:24,639
+ada 9 operasi
+
+446
+00:39:24,639 --> 00:39:30,380
+entar jangan pake ini nih
+
+447
+00:39:30,380 --> 00:39:34,010
+ini ada 32 layer, buat setiap layer
+
+448
+00:39:34,010 --> 00:39:36,110
+buat setiap layer ada
+
+449
+00:39:36,110 --> 00:39:38,329
+9 operasi
+
+450
+00:39:38,329 --> 00:39:40,329
+dan dalam masing operasi
+
+451
+00:39:40,329 --> 00:39:42,780
+ada 6 volt model
+
+452
+00:39:42,780 --> 00:39:45,420
+ada
+
+453
+00:39:45,420 --> 00:39:48,699
+ada 6 volt model
+
+454
+00:39:48,699 --> 00:39:52,300
+6 volt model
+
+455
+00:39:52,300 --> 00:39:54,619
+emas klik 2 kali aja udah muncul
+
+456
+00:39:54,619 --> 00:39:56,650
+buat nipty
+
+457
+00:39:56,650 --> 00:40:00,030
+klik 2 kali
+
+458
+00:40:00,030 --> 00:40:02,030
+kursornya
+
+459
+00:40:02,030 --> 00:40:04,800
+oh begini?
+
+460
+00:40:04,800 --> 00:40:07,119
+ada 6 volt model
+
+461
+00:40:07,119 --> 00:40:09,119
+dan setiap volt model ada
+
+462
+00:40:09,119 --> 00:40:11,119
+8 bit
+
+463
+00:40:11,119 --> 00:40:13,530
+ada 8 bit
+
+464
+00:40:13,530 --> 00:40:16,519
+yang akan diinject
+
+465
+00:40:16,519 --> 00:40:18,519
+dan buat setiap bit yang akan diinject
+
+466
+00:40:18,519 --> 00:40:20,909
+bakal diinject 5 kali
+
+467
+00:40:20,909 --> 00:40:24,119
+ngerti kan?
+
+468
+00:40:24,119 --> 00:40:36,269
+Jadi begini, ini contoh aku kasih di sini ya, disini kalau mau dilihat ada 13 layer
+
+469
+00:40:36,269 --> 00:40:43,269
+Jadi kan waktu ukuran si VAR10 kan lebih kecil ya, jadi cuma ada 13 layer yang aku evaluasi disini
+
+470
+00:40:43,269 --> 00:40:48,909
+Nah kalau transformer beda kan, dimana kalau kita lihat attention block,
+
+471
+00:40:48,909 --> 00:41:21,670
+Kalo kita liat attention block kan, ada ini, nah kalau diliat kan, kalau dalam transformer kan, diliat dalam transformer kan ada 6 operasi kan, ada 1, 2, 3, 4, 5, sebenernya kalau lama ada 6, tapi di sini ada 5.
+
+472
+00:41:21,670 --> 00:41:29,920
+Ini buat satu attention block kan, jadi 36 layer, ada 1, 2, 3, 4, 5 dan ada satu lagi, eh kenapa kekir ya lu?
+
+473
+00:41:29,920 --> 00:41:32,179
+Ya, lanjut mas.
+
+474
+00:41:32,179 --> 00:41:59,280
+Jadi ada 9 operasi kan buat lama, jadi disini ibaratnya itu satu layer dan operasinya itu kayak layer dan layer dan layer dan layer dan layer dan layer dan layer dan layer dan layer dan layer dan layer.
+
+475
+00:41:59,280 --> 00:42:13,739
+Di sini ibaratnya itu satu layer dan operasinya itu kayak, layer dan operasinya bisa dibilang itu
+
+476
+00:42:20,960 --> 00:42:26,619
+Jadi setiap layer dan setiap operasi itu bakal kamu inject, bakal kamu inject setiap vault model gitu
+
+477
+00:42:26,619 --> 00:42:31,380
+Dan buat setiap vault model kamu bakal inject setiap bit, dan buat setiap bit kamu inject 5 kali
+
+478
+00:42:32,360 --> 00:42:33,500
+Nah contohnya di sini
+
+479
+00:42:33,500 --> 00:42:38,500
+Nah biasanya kan kalau C410 kan enak, operasinya kan cuma convolution kan, bener kan?
+
+480
+00:42:38,500 --> 00:42:45,170
+Jadi kayak, ya udah anggap lah kayak di sini udah digabung lah, di mana?
+
+481
+00:42:45,170 --> 00:42:53,030
+Intinya kalau di C410 ini jumlah layer-nya kan cuma ada 13 kan.
+
+482
+00:42:53,030 --> 00:43:01,030
+Tapi kalau di transformer atau di LAMA, jumlah layer-nya sebenarnya bisa dibilang 32x9.
+
+483
+00:43:01,030 --> 00:43:04,030
+Jadi ada 288 layer sebenernya.
+
+484
+00:43:04,030 --> 00:43:08,510
+Kalau kita mau pikir dulu ini sebagai masing-masing operasi layer gitu,
+
+485
+00:43:08,510 --> 00:43:09,510
+Sampai sini paham nggak?
+
+486
+00:43:09,510 --> 00:43:10,510
+Paham, Mas.
+
+487
+00:43:10,510 --> 00:43:12,059
+Halo?
+
+488
+00:43:12,059 --> 00:43:14,730
+Iya, Paham, Mas.
+
+489
+00:43:14,730 --> 00:43:17,730
+Jadi anggaplah, yaudah, Nek, supaya kita nggak bingung,
+
+490
+00:43:17,730 --> 00:43:29,280
+Ini 32 x 9 itu anggaplah 288 layer.
+
+491
+00:43:29,280 --> 00:43:31,280
+Kita samain aja supaya nggak bingung.
+
+492
+00:43:31,280 --> 00:43:32,280
+Sampai sini paham, kan?
+
+493
+00:43:32,280 --> 00:43:34,889
+Paham, Paham.
+
+494
+00:43:34,889 --> 00:43:48,889
+Anggaplah setiap layer dari 288 layer ini, kamu bakal inject setiap vault model ke masing layer, ngerti kan?
+
+495
+00:43:48,889 --> 00:43:49,889
+Oke, ya.
+
+496
+00:43:49,889 --> 00:43:50,920
+Talo?
+
+497
+00:43:50,920 --> 00:43:54,920
+Ya, setiap layer kamu bakal running vault modelnya.
+
+498
+00:43:54,920 --> 00:44:04,019
+Nah, dan buat setiap vault model kan ada berapa bit kan, contoh ini aku cuma 4 bit kan.
+
+499
+00:44:04,019 --> 00:44:10,050
+Ini contoh buat 4 bit ya, jadi kamu bakal inject setiap volt model dan setiap bit
+
+500
+00:44:10,050 --> 00:44:14,050
+Nah artinya contohnya disini kan, aku inject cuma volt model input
+
+501
+00:44:14,050 --> 00:44:20,050
+Nah tapi buat input aku inject bitnya satu persatu, tapi aku injectnya beberapa kali, ngerti kan?
+
+502
+00:44:20,050 --> 00:44:25,460
+Berapa kali itu berapa batas?
+
+503
+00:44:25,460 --> 00:44:27,659
+5
+
+504
+00:44:27,659 --> 00:44:40,260
+jadi disini mari kita lihat satu persatu ya, anggaplah udah lah kita gausah pake 32 layer, kita anggaplah ini semua 288 layer
+
+505
+00:44:40,260 --> 00:44:53,389
+supaya lebih gampang, 288 layer ini tuh masing layer kita inject volt modelnya, jadi kita inject volt modelnya ke satu layer itu
+
+506
+00:44:53,389 --> 00:44:57,389
+jadi semua ini buat 1 volt model kita inject ke layer nya
+
+507
+00:44:57,389 --> 00:45:00,420
+liatkan ini, kamu kelihatan kan disini kan
+
+508
+00:45:00,420 --> 00:45:06,969
+nah dan buat setiap volt model itu kita inject setiap bit posisi dari 0
+
+509
+00:45:06,969 --> 00:45:10,969
+nah ini 4 bit kan jadi enak, cuma 0-3
+
+510
+00:45:10,969 --> 00:45:14,969
+dan liatkan semua ini di inject cuma buat 1 volt model itu, paham kan
+
+511
+00:45:14,969 --> 00:45:22,440
+dan buat setiap bit yang kita inject, kita inject 5 kali
+
+512
+00:45:22,440 --> 00:45:30,989
+5 kali, tapi kalau disini kan aku inject kan, aku kan disini inject, ini berapa kan ini, nggak kelihatan, nanti deh
+
+513
+00:45:30,989 --> 00:45:37,190
+intinya kayak disini aku, contoh aku inject disini 30, tapi kalau kamu cukup inject 5 kali aja, ngerti kan?
+
+514
+00:45:37,190 --> 00:45:38,190
+iya
+
+515
+00:45:38,190 --> 00:45:47,340
+jadi begitu aja, jadi begitu aja kayak apa, udah jelas kan dari contoh disini kamu harus injectnya gimana
+
+516
+00:45:47,340 --> 00:45:54,619
+setiap layer, setiap fold model, setiap bit, setiap bitnya 5 kali, begitu aja
+
+517
+00:45:54,619 --> 00:45:58,500
+Paham kan?
+
+518
+00:45:58,500 --> 00:46:03,099
+Analisis-analisis yang lain seperti ini kamu gak usah ngitung, itu apa aja yang ngitung
+
+519
+00:46:03,099 --> 00:46:08,099
+Coba kamu smoke test FP16 dan INT8
+
+520
+00:46:08,099 --> 00:46:12,699
+Menurutku yaudah deh sekalian kita sempurnakan FP16 dan INT8
+
+521
+00:46:12,699 --> 00:46:15,699
+Dan for now ya
+
+522
+00:46:15,699 --> 00:46:23,539
+Coba kamu running 288 layer ya
+
+523
+00:46:23,539 --> 00:46:34,230
+Jadi kalau kita mau running satu kali pun, kalau kita cuma running buat satu kali inject, artinya 28x6x8x1
+
+524
+00:46:34,230 --> 00:46:36,489
+13.000 itu banyak kan?
+
+525
+00:46:36,489 --> 00:46:42,369
+Oke, jadi 28x6x8x5 itu 69.000
+
+526
+00:46:42,369 --> 00:46:48,389
+Oh, jadi yaudah deh supaya gampang inject-nya dua kali aja
+
+527
+00:46:48,389 --> 00:46:50,869
+Jadi 2x6x8x2
+
+528
+00:46:50,869 --> 00:46:55,269
+Jumlah final yang kamu mau eksperimentasi buat apa?
+
+529
+00:46:55,269 --> 00:47:00,949
+Eh, soalnya ini empat aja buat FP, buat FP 16 jadi empat
+
+530
+00:47:03,179 --> 00:47:05,659
+Intinya begini aja deh, apa?
+
+531
+00:47:06,719 --> 00:47:08,719
+Intinya apa? Buat smoke test pertama
+
+532
+00:47:09,320 --> 00:47:12,550
+Cuma kamu ambil 32 layer pertama
+
+533
+00:47:13,050 --> 00:47:15,750
+Smoke test kamu ambil, oke jadi ini kita pisahin dulu
+
+534
+00:47:16,670 --> 00:47:17,469
+Garis uci
+
+535
+00:47:18,429 --> 00:47:25,480
+Nah, ini total buat eksperimen, buat apa? Buat paper
+
+536
+00:47:25,579 --> 00:47:27,480
+Dan ini kita ada total
+
+537
+00:47:28,530 --> 00:47:32,960
+Buat, nah buat smoke test
+
+538
+00:47:33,590 --> 00:47:50,010
+karena ada 50 dolar, ini semua sama kecuali jumlah layernya hanya 16 aja
+
+539
+00:47:50,010 --> 00:47:57,610
+kamu ambil 16 layer pertama aja, tapi yang lain kamu lakuin seperti ini persis
+
+540
+00:47:57,610 --> 00:47:59,989
+kalau begitu gimana?
+
+541
+00:47:59,989 --> 00:48:04,869
+16 kali 6, kali 8, kali 2, masih 1000 ya?
+
+542
+00:48:04,869 --> 00:48:15,590
+udah 1000 tuh udah cepet kok, kan 1 baris cuma 2 detik
+
+543
+00:48:15,590 --> 00:48:28,699
+jadi 1500 itu masih lama juga kan, dibagi 2, eh kali 2, masih 51 menit ya
+
+544
+00:48:28,699 --> 00:48:33,860
+1 jaman ya
+
+545
+00:48:33,860 --> 00:48:43,010
+1 jam ya, masih lama sih menurut, eh tapi karena kita ketemu setiap hari gak apa-apa sih kalau begitu, iya ya?
+
+546
+00:48:43,010 --> 00:48:44,260
+iya
+
+547
+00:48:44,260 --> 00:48:51,260
+Gitu aja dulu deh vidikri, tolong screenshot ini, tapi sisanya kamu udah ngerti kan?
+
+548
+00:48:51,260 --> 00:48:54,619
+16 layer itu..
+
+549
+00:48:54,619 --> 00:48:56,619
+Yang ambil yang pertama aja, 16?
+
+550
+00:48:56,619 --> 00:49:00,619
+Atau kamu kalau mau random, mau ambil random?
+
+551
+00:49:00,619 --> 00:49:02,780
+Atau..
+
+552
+00:49:02,780 --> 00:49:38,460
+Sorry tadi aplikasi aku zoomnya crash
+
+553
+00:49:38,460 --> 00:49:44,460
+Oke oke, tapi intinya begini, yuduh deh jumlah layernya random aja
+
+554
+00:49:44,460 --> 00:49:52,199
+random aja, tapi harus strato seperti yang ada, aku kasih contoh ini ya
+
+555
+00:49:52,199 --> 00:49:53,199
+alo
+
+556
+00:49:53,199 --> 00:49:54,199
+iya
+
+557
+00:49:54,199 --> 00:49:56,449
+iya
+
+558
+00:49:56,449 --> 00:49:57,449
+udah
+
+559
+00:49:57,449 --> 00:49:58,449
+iya
+
+560
+00:49:58,449 --> 00:50:00,449
+bentar-bentar, aku gini sama kamu, supaya gak lupa
+
+561
+00:50:00,449 --> 00:50:05,360
+masuk, masuk, masuk
+
+562
+00:50:05,360 --> 00:50:07,360
+iya, masuk, masuk, oke, gini, apa
+
+563
+00:50:07,360 --> 00:50:12,929
+jadi kamu buat smoke test sekarang tuh running-nya segini ya
+
+564
+00:50:12,929 --> 00:50:14,929
+running-nya segini ya
+
+565
+00:50:14,929 --> 00:50:16,659
+oke
+
+566
+00:50:16,659 --> 00:50:18,699
+running-nya segini
+
+567
+00:50:18,699 --> 00:50:19,789
+tapi
+
+568
+00:50:19,789 --> 00:50:26,489
+Tapi ingat, nanti hasilnya kurang lebih bakal seperti yang referensi CSV yang aku kirim ke kamu di OWA
+
+569
+00:50:26,489 --> 00:50:32,090
+bakal teratur seperti ini hasilnya, tapi kan jelas hasil yang kamu olahkan lebih banyak kan daripada biasanya
+
+570
+00:50:32,090 --> 00:50:32,789
+Iya
+
+571
+00:50:32,789 --> 00:50:33,289
+Iya kan
+
+572
+00:50:33,289 --> 00:50:33,789
+Iya
+
+573
+00:50:33,789 --> 00:50:42,619
+Nah, oleh karena itu ya udah kayak apa, kita tinggal sempurnain sisi ini aja buat FP16 dulu, itu buat mock test pertama, oke?
+
+574
+00:50:42,619 --> 00:50:43,619
+Oke mas
+
+575
+00:50:43,619 --> 00:50:47,039
+Ya udah, dan satu jam harusnya murah ya?
+
+576
+00:50:47,039 --> 00:50:48,579
+Murah, murah
+
+577
+00:50:48,579 --> 00:50:51,900
+Berapa, berapa kira-kira?
+
+578
+00:50:51,900 --> 00:50:54,400
+Ini sama INT-8 atau FP-16 aja?
+
+579
+00:50:56,440 --> 00:51:00,940
+Kita bakal lakuin dua-dua, tapi fokus FP-16 dulu
+
+580
+00:51:03,679 --> 00:51:07,179
+Atau kamu mau lakuin FP-16 dan INT-8 sekaligus gitu?
+
+581
+00:51:07,679 --> 00:51:09,179
+Iya, palingnya...
+
+582
+00:51:09,179 --> 00:51:10,179
+Boleh, boleh
+
+583
+00:51:11,639 --> 00:51:13,139
+15 aja, 15
+
+584
+00:51:14,489 --> 00:51:15,489
+15 dolar kan?
+
+585
+00:51:16,940 --> 00:51:20,940
+Oke, jadi lakuin smoke test dulu, FP-16 dan INT-8
+
+586
+00:51:20,940 --> 00:51:26,320
+Ingat ya, pakai konfigurasi ini. Udah kamu screenshot belum?
+
+587
+00:51:26,320 --> 00:51:32,659
+Oke, belum-belum. Oke udah.
+
+588
+00:51:32,659 --> 00:51:37,579
+Oke, jadi apa?
+
+589
+00:51:37,579 --> 00:51:46,510
+INT 8, kalau FP 16,
+
+590
+00:51:46,510 --> 00:51:49,510
+supaya murah begini aja. Ini INT 8 kan?
+
+591
+00:51:49,510 --> 00:51:53,059
+Ini INT 8. Ini INT 8.
+
+592
+00:51:53,059 --> 00:52:04,059
+Nanti buat FP 16. FP 16.
+
+593
+00:52:04,059 --> 00:52:09,300
+semua ini sama kecuali jumlah layer yang bakal jadi 8 aja
+
+594
+00:52:09,300 --> 00:52:13,219
+supaya kita ada bayangankan dan jumlah bitnya 16
+
+595
+00:52:13,219 --> 00:52:17,730
+ok begini, make sense kat kalau begini?
+
+596
+00:52:17,730 --> 00:52:20,050
+8 aja ya?
+
+597
+00:52:20,659 --> 00:52:24,579
+ya soalnya kalau kita bikin ini 16 juga kan
+
+598
+00:52:24,579 --> 00:52:26,820
+bakal 2 kali lipat jumlah eksperimen kan
+
+599
+00:52:26,820 --> 00:52:29,300
+ini hanya buat smoke test gitu
+
+600
+00:52:29,300 --> 00:52:32,340
+atau kalau 16 layer disini apa apa menurut kamu?
+
+601
+00:52:32,340 --> 00:52:36,980
+ya 16 aja biar kelihatan perbandingannya
+
+602
+00:52:36,980 --> 00:52:42,489
+Oke, oke. Yaudah deh, smoke test buat ini harusnya kaya 20 dolaran ya.
+
+603
+00:52:42,489 --> 00:52:43,489
+Iya.
+
+604
+00:52:43,489 --> 00:52:49,900
+Oke, sip sip. Ini dilakuin dulu, kita akan ketemu lagi besok pagimu ya.
+
+605
+00:52:49,900 --> 00:52:50,900
+Oke.
+
+606
+00:52:50,900 --> 00:52:58,510
+Atau, iya ya. Oke, oke. Ini jam berapa disana? Ini masih, eh, besok malam, eh malam ininya kamu artinya kita ketemu ya.
+
+607
+00:52:58,510 --> 00:53:00,829
+Malam ini, malam ini.
+
+608
+00:53:00,829 --> 00:53:07,829
+Oke, oke. Sip, sip, sip. Apa, yang buat smoke test, yang smoke test fokus ini aja dulu ya Fikri ya.
+
+609
+00:53:07,829 --> 00:53:10,539
+Oke.
+
+610
+00:53:10,539 --> 00:53:12,539
+Oke, sip sip sip.
+
+611
+00:53:12,539 --> 00:53:16,539
+Dan juga karena kamu fokus ini sehari,
+
+612
+00:53:16,539 --> 00:53:19,539
+kamu 50 ribu mau pake buat makan-makan,
+
+613
+00:53:19,539 --> 00:53:21,539
+atau mau go food, pake aja gak apa-apa.
+
+614
+00:53:21,539 --> 00:53:22,539
+Oke?
+
+615
+00:53:22,539 --> 00:53:23,949
+Oke, oke.
+
+616
+00:53:23,949 --> 00:53:24,949
+Oke, oke.
+
+617
+00:53:24,949 --> 00:53:25,949
+Jadi fokus ini dulu ya.
+
+618
+00:53:25,949 --> 00:53:27,949
+Smoke test-nya semoga sempurna.
+
+619
+00:53:27,949 --> 00:53:29,949
+Sudah aku kasih referensinya di sini.
+
+620
+00:53:29,949 --> 00:53:31,949
+Ingat, ini buat convolution ya,
+
+621
+00:53:31,949 --> 00:53:32,949
+jadi jauh lebih simple.
+
+622
+00:53:32,949 --> 00:53:34,949
+Tapi yang punya kamu tuh,
+
+623
+00:53:34,949 --> 00:53:38,389
+aku udah suka lebih, udah suka lengkapnya
+
+624
+00:53:38,889 --> 00:53:41,809
+jadi kaya apa, ya kurang lebih lakuin
+
+625
+00:53:41,809 --> 00:53:44,510
+yang seperti yang di-conclusion tapi buat lama ini
+
+626
+00:53:44,510 --> 00:53:45,510
+gitu aja
+
+627
+00:53:47,079 --> 00:53:49,659
+ok, aku mau liat terakhir, terakhir aku mau cek
+
+628
+00:53:49,659 --> 00:53:54,119
+kalau dari transformer aku ada, aku kan yang lakuin sendiri buat transformer kan
+
+629
+00:53:54,119 --> 00:53:56,679
+cuma kaya aku mau liat
+
+630
+00:53:56,679 --> 00:53:59,639
+yang, nah kalau transformer simple juga
+
+631
+00:53:59,639 --> 00:54:02,199
+soalnya apa, soalnya
+
+632
+00:54:02,199 --> 00:54:05,699
+Ketriknya itu lebih jelas buat transformer kalau mau dinilai apa
+
+633
+00:54:05,699 --> 00:54:09,699
+Tapi kan kalau lelemkan itu masih kayak luas banget ya
+
+634
+00:54:09,699 --> 00:54:11,199
+Jadi yaudah kayak apa
+
+635
+00:54:13,530 --> 00:54:17,030
+Matt apa yang data yang kamu kumpulkan selama ini itu dikumpulkan aja
+
+636
+00:54:17,030 --> 00:54:19,530
+Dan kita bakal ketemu malam ini ya
+
+637
+00:54:19,530 --> 00:54:20,530
+Oke mas
+
+638
+00:54:20,530 --> 00:54:23,849
+Oke, kalau kamu mau pakai 50 ribu buat kayak makan-makan
+
+639
+00:54:23,849 --> 00:54:25,849
+Supaya kamu kayak bisa kerja di kosan
+
+640
+00:54:25,849 --> 00:54:26,849
+Pakai aja ya
+
+641
+00:54:26,849 --> 00:54:27,849
+Amin amin
+
+642
+00:54:27,849 --> 00:54:29,300
+Halo
+
+643
+00:54:29,300 --> 00:54:30,300
+Oke oke
+
+644
+00:54:30,300 --> 00:54:31,300
+Oke oke
+
+645
+00:54:32,300 --> 00:54:33,300
+Engat ya?
+
+646
+00:54:33,300 --> 00:54:38,739
+kita deadline paper oktober 10, tapi kita target by sabtu minggu depan udah selesai
+
+647
+00:54:38,739 --> 00:54:40,420
+ok, sip sip, sampe gitu dulu ya
+
+648
+00:54:40,420 --> 00:54:40,920
+ok ok
+
+649
+00:54:40,920 --> 00:54:41,420
+halo?
+
+650
+00:54:41,420 --> 00:54:41,920
+ok man
+
+651
+00:54:41,920 --> 00:54:42,420
+ok
+
+652
+00:54:42,420 --> 00:54:44,260
+dan kalo kamu butuh bantuan ku langsung telpon ya
+
+653
+00:54:44,260 --> 00:54:47,219
+jangan chat, maksudnya kalo emang urgent langsung telpon aja ya
+
+654
+00:54:47,219 --> 00:54:51,619
+kalo aku ga angkat, artinya aku emang kaya lagi ada urusan lain dan no nothing personal gitu
+
+655
+00:54:51,619 --> 00:54:53,139
+ok ok, sip sip
+
+656
+00:54:53,139 --> 00:54:55,139
+ok, sip sip sip
+
+657
+00:54:55,139 --> 00:54:57,780
+yaudah, semangat ya fikirnya, semoga besok pagi
+
+658
+00:54:57,780 --> 00:55:01,539
+besok paginya aku, yaitu malamnya kamu, kita smoke test
+
+659
+00:55:01,539 --> 00:55:06,820
+kita smoke test juga, kita bahas smoke test setengah jam atau satu jam ya
+
+660
+00:55:06,820 --> 00:55:10,659
+supaya kayak bisa tuntas nih kayak apa ini udah bener atau belum gitu
+
+661
+00:55:10,659 --> 00:55:12,639
+oke oke oke
+
+662
+00:55:12,639 --> 00:55:14,159
+oke siap siap, semangat ya Fikri ya
+
+663
+00:55:14,159 --> 00:55:14,800
+oke
+
+664
+00:55:14,800 --> 00:55:16,400
+maaf ya kalau selama ini kayak apa
+
+665
+00:55:17,039 --> 00:55:21,119
+banyak kegaduhan ini, aku literally baru sampai tadi malam disini
+
+666
+00:55:21,119 --> 00:55:25,679
+aku selama, aku berapa minggu lalu kayak aku persiapan dan juga kayak urus dokumen
+
+667
+00:55:25,679 --> 00:55:28,639
+tapi akhirnya kayak aku baru pindah, literally hari ini, kalau kamu lihat
+
+668
+00:55:28,639 --> 00:55:37,590
+yang penting kita cus sama Evaluasi aja
+
+669
+00:55:37,590 --> 00:55:41,590
+ok sip sip, yaudah di itu ya kita datang malam ini ya
+
+670
+00:55:41,590 --> 00:55:43,590
+ok thank you ma
+
+671
+00:55:43,590 --> 00:55:45,590
+siip siip siip, semangat semangat
+

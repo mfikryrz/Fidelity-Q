@@ -1,0 +1,11 @@
+39a40,49
+>         # onnx_bitflip.so hanya menyediakan custom.bitflip:BitFlip untuk tensor
+>         # FP16. Graf INT8 menyimpan FP32, sehingga graph.py memilih
+>         # DirectBitToggleFp32 di domain ai.onnx.contrib milik
+>         # onnxruntime-extensions. Tanpa pendaftaran ini, SELURUH baris
+>         # RANDOM_BITFLIP pada INT8 gagal dimuat.
+>         try:
+>             from onnxruntime_extensions import get_library_path as _ext_lib
+>             sess_options.register_custom_ops_library(_ext_lib())
+>         except Exception as _e:
+>             print(f"[warn] onnxruntime-extensions tidak terdaftar: {_e}", flush=True)

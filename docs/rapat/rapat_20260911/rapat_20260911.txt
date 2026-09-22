@@ -1,0 +1,198 @@
+[0:00:00 - 0:00:23] random index bedanya apa?
+[0:00:23 - 0:00:27] kalau index, index apa?
+[0:00:27 - 0:00:39] index sama injection itu apa?
+[0:00:39 - 0:01:25] random index itu apa ya?
+[0:01:25 - 0:03:08] yang injection sama random index itu apa ya?
+[0:03:08 - 0:04:28] injection sama run IDX itu
+[0:04:28 - 0:04:30] kayak menyimpan
+[0:04:30 - 0:04:32] apa sih?
+[0:04:32 - 0:04:37] eksperimen dari baris itu mas
+[0:04:37 - 0:04:39] jadi kayak
+[0:04:39 - 0:04:41] kalau dari ininya sih
+[0:04:41 - 0:04:43] injection itu kayak
+[0:04:43 - 0:05:01] Acak bagian layar terentu, nomor terentu, nanti di random ADX-nya itu untuk menyimpan, apa sih, mengacak kembali dari posisinya itu.
+[0:05:01 - 0:05:12] Berat kata kayak, dia buat menyimpan eksperimennya. Jadi kalau seandainya eksperimennya itu pengen diulang lagi,
+[0:05:12 - 0:05:16] Nah itu tinggal diulang aja yang diinjectednya gitu
+[0:05:16 - 0:05:24] Nah injected, aku masuk akal menurutku injectednya, cuman random indexnya aku bingung
+[0:05:24 - 0:05:42] Ya itu buat menghitung elemen yang ke berapa yang dirusak
+[0:05:42 - 0:05:49] Random index itu kayak elemen yang kesekiannya yang dirusak
+[0:05:49 - 0:05:59] Injected itu berupa masukan, random index itu berupa keluarannya
+[0:05:59 - 0:06:03] Allah ngerti. Boleh disenderahkan nggak, penjelasannya?
+[0:06:03 - 0:06:12] Jadi kalau inyeksi itu kayak masuk ke...
+[0:06:12 - 0:06:17] Jadi intinya komputer sebenarnya tidak bisa menghasilkan angka yang benar-benar acak.
+[0:06:17 - 0:06:22] Dia lakukan adalah rumus matematika untuk terlihat acak.
+[0:06:22 - 0:06:28] Jadi konsekuensinya itu kayak kalau rumus itu dimulai dari angka awal yang sama,
+[0:06:28 - 0:06:33] saya akan masukkan deretat angka yang sama persis setiap kali di komputer manapun
+[0:06:33 - 0:06:36] angka awal itu yang disebut seed
+[0:06:37 - 0:06:40] ya itu kan inject seed kan udah jelas tuh
+[0:06:40 - 0:06:44] tapi kan random index kan apa bedanya sama inject seed random indexnya
+[0:06:44 - 0:06:54] kan jelas, pastikan ada butuh seed kan buat random minum angka kan
+[0:06:54 - 0:06:56] buat setiap kalirannya eksperimen
+[0:06:56 - 0:06:58] nah inject seed jelas tuh fungsinya apa
+[0:06:58 - 0:07:29] tapi random index itu buat apa?
+[0:07:29 - 0:07:32] bahasanya alien banget sih
+[0:07:32 - 0:07:33] kenapa?
+[0:07:33 - 0:07:38] Eh apa? Kayak klo deng nih, kayaknya nggak bisa bahas ini aja
+[0:07:38 - 0:07:41] Oh iya, apa?
+[0:07:41 - 0:07:46] Ini di mana dikodex ini?
+[0:07:46 - 0:07:47] Halas?
+[0:07:47 - 0:07:51] Ini di mana random index dikodenya?
+[0:07:51 - 0:07:55] Ini di mana maksudnya?
+[0:07:55 - 0:08:01] Ini random index di source code-nya buat kamu jalanin eksperimen dipakai buat apa?
+[0:08:01 - 0:08:11] Menandain itunya biar pas random-nya itu kedetek gitu
+[0:08:11 - 0:08:14] pas melakukan randomness terhadap
+[0:08:14 - 0:08:17] posisi bit atau apa
+[0:08:17 - 0:08:18] itu biar
+[0:08:20 - 0:08:21] di detek
+[0:08:21 - 0:08:29] oh buat posisi, oh yang
+[0:08:29 - 0:08:31] gak random lagi
+[0:08:31 - 0:08:33] bukan buat posisi bit, yang koordinat
+[0:08:35 - 0:08:37] oh ini buat random index koordinat
+[0:08:37 - 0:08:43] pertama kali kamu running kan
+[0:08:43 - 0:08:45] dulu koordinatnya kan fix di satu tempat kan
+[0:08:45 - 0:08:46] iya
+[0:08:46 - 0:08:57] tapi dulu kan ada injectitnya
+[0:08:57 - 0:09:00] random index walaupun kamu gak catat
+[0:09:00 - 0:09:01] posisi mana
+[0:09:01 - 0:09:14] smoke test dulu kamu pernah ada random index, random index kamu tuh ada koordinat disini
+[0:09:14 - 0:09:16] jadi kayak apa ya?
+[0:09:16 - 0:09:20] dulu kan kamu waktu injection nya gak random kan sebenernya buat koordinatnya
+[0:09:20 - 0:09:30] boleh di cek gak source code?
+[0:09:30 - 0:09:35] source code nya di itu, hugging face
+[0:09:35 - 0:09:38] oh source code nya nih hugging face
+[0:09:38 - 0:10:46] kamu bisa search screen gak?
+[0:10:46 - 0:12:26] disable
+[0:12:26 - 0:12:27] inject nya kemana?
+[0:12:27 - 0:14:36] harusnya ada cara hitung itu dong
+[0:14:36 - 0:14:39] kelihatan semua jadi satu demensi, hitung index nya
+[0:14:39 - 0:14:46] sit dan random index itu buat apa?
+[0:14:46 - 0:18:33] Subjectnya ini harus cek inferensinya kan kalau faulty bakal ada non-value kan
+[0:18:33 - 0:18:38] Bisa aja kayak alamnya itu ngacok banget
+[0:18:38 - 0:22:14] 1 rupiah 19 dari 7 rupiah
+[0:22:14 - 0:23:29] Dan nanti pas kita coba hasilnya kita bakal kerjaan cook
+[0:23:29 - 0:23:34] Aku baca-baca dibugnya sih
+[0:23:34 - 0:23:39] Ada bagian gak bisa menahan inyeksi jadi
+[0:23:39 - 0:23:43] Bukan gak bisa menahan inyeksi ya
+[0:23:43 - 0:23:49] Ya apa, karena di inyek gitu jadinya error
+[0:23:49 - 0:23:51] Ini kayak supaya kamu tau aja
+[0:23:51 - 0:24:00] menarik soalnya, jadi kenapa hasilnya jadinya persis, jadi bit yang diinjek ke bit 14 kan
+[0:24:00 - 0:24:03] jadi kalau ada 16 bit artinya itu bit 15
+[0:24:03 - 0:24:21] jadi misalnya nih aku ada angka, terus angkanya akan terjadi paling besar
+[0:24:21 - 0:24:46] di posisi paling gede, 0,01 bisa meledak jadi 40 atau 400 miliar gitu
+[0:24:46 - 0:25:00] soalnya kan kalau FP 16 kan itu kan range nya gede, karena kan bisa dari minus berapa puluh
+[0:25:00 - 0:25:13] Waktu saya lihat hasilnya, saya sudah tahu penyebabnya pasti bit-bit yang gede yang menghasilkannya
+[0:25:13 - 0:25:19] Artinya ini sudah benar eksperimentasinya dan juga menarikkan
+[0:25:19 - 0:25:26] Jadi jangan, ini justru hasil-hasil seperti ini itu menurut saya lebih menarik
+[0:25:26 - 0:25:29] Tapi artinya ini framework-nya sudah benar sampai
+[0:25:29 - 0:25:39] Sebenarnya semua sampai column way sudah benar dan juga secara urutan ini sudah benar
+[0:25:39 - 0:25:47] Cuma ingat ya, nanti pas eksperimen masal semua layer index dan semua operasi diwinjikan
+[0:25:47 - 0:25:52] diavaluasi kan, jadi kayak 0, ada procs matmul, sel potensi matmulnya kan
+[0:25:52 - 0:25:53] gimana lu sorry?
+[0:25:53 - 0:25:57] nanti pas eksperimentasi maksal
+[0:26:00 - 0:26:03] setiap dekoder itu, setiap operasi dengan dekoder bakal dicek kan
+[0:26:03 - 0:26:04] iya
+[0:26:04 - 0:26:06] jadi
+[0:26:06 - 0:26:09] pas kamu awal-awal smoke test, nanti dicek ya
+[0:26:09 - 0:26:12] kalau setiap operasinya, setiap dekoder itu
+[0:26:12 - 0:26:14] diavaluasi atau enggak
+[0:26:14 - 0:26:17] oke oke
+[0:26:17 - 0:26:22] nah tinggal itu yang perlu kamu cek, tapi menurutku
+[0:26:22 - 0:26:25] Udah aman sih kalo kayak ngomongin
+[0:26:25 - 0:26:28] Sampai sini udah aman, tapi kalo lu mau ya
+[0:26:28 - 0:26:34] Concern-ku cuma satu ini, soalnya kan belum tau ya kalo kita eksperi, kalo kamu eksperimentasi lagi bakal gimana
+[0:26:34 - 0:26:38] Ini udah jelas kan kayak concern-nya apa kan?
+[0:26:38 - 0:26:39] Iya concern
+[0:26:39 - 0:26:43] Oke, jadi dari...
+[0:26:43 - 0:26:46] Evaluasi dekoder index-nya aja kan?
+[0:26:46 - 0:26:53] Bukan dekoder index, iya dekoder index, jadi setiap index harus ada small prasinya
+[0:26:53 - 0:26:54] Oke
+[0:26:54 - 0:27:04] tapi sampai sini cuma satu koncernnya, mungkin kamu sudah jadi frameworknya, cuma tinggal dilakuin aja
+[0:27:04 - 0:27:11] intinya sampai column way sudah benar, and prom token itu cuma jumlah token di prom nya
+[0:27:11 - 0:27:26] itu cuma jumlah token di prom nya, teks itu artinya setiap output kamu batasin ke 48
+[0:27:26 - 0:27:31] ini yang setting kamu nya atau dapat angka 48 dari mana?
+[0:27:31 - 0:27:37] Kayaknya dari apa, dari eksperimennya si Claude deh
+[0:27:37 - 0:27:43] Si Claude, oh yaudah intinya dia langsung seti ke 48
+[0:27:43 - 0:27:46] Tapi gak apa-apa juga sih, soalnya kan kita
+[0:27:47 - 0:27:49] Kita itu outputnya cuma sedikit
+[0:27:49 - 0:27:54] Dan kalau sampai panjang pun gak bakal make sense kalau sampai panjang
+[0:27:54 - 0:27:59] Apa mau ditambah batas topeng?
+[0:27:59 - 0:28:03] Bukan ditambahin, tapi harus ada rasional
+[0:28:03 - 0:28:07] ada alasan kenapa kita batasnya 4 latan gitu
+[0:28:07 - 0:28:11] cuma kayak menurutku karena data setnya intinya kayak
+[0:28:11 - 0:28:16] coba cari rasionalisasi atau alasan kenapa 4 latan, aku nggak apa-apa
+[0:28:16 - 0:28:18] justru aku suka makin pendek, sebaiknya lebih cepat kan
+[0:28:18 - 0:28:23] masa ingatan aku aja tuh
+[0:28:23 - 0:28:25] kalau nggak ngelop itu karena
+[0:28:25 - 0:28:28] yang waktu yang gagal
+[0:28:28 - 0:28:31] cuma ngambil
+[0:28:31 - 0:28:34] yang 5 shot gitu yang
+[0:28:34 - 0:28:44] HBCD doang, itu kan ganda cepat, terus aku minta dia buat ambil yang pilihan ganda plus tax
+[0:28:44 - 0:28:52] Itu 48 itu karena kayak rata-rata jawaban di pilihan ganda itu 48 token gitu
+[0:28:52 - 0:28:55] Kalau gak salah
+[0:28:55 - 0:28:57] Rata-rata 48 ya?
+[0:28:57 - 0:28:59] Oh rata-rata, oke kita bisa bilang begitu deh
+[0:28:59 - 0:29:15] Kalo lebih panjang gitu, takutnya LLM yang fold gitu, dia malah melantur gitu
+[0:29:15 - 0:29:28] Kalo lebih panjang, takutnya LLM yang default itu lebih melantur gitu daripada golden
+[0:29:28 - 0:29:36] Kalo lebih panjang, takutnya LLMnya, oh iya, fold-foldnya lebih lebar ya?
+[0:29:36 - 0:29:37] Iya
+[0:29:37 - 0:29:41] Gapapa deh, kalo rasionalisasi kaya gitu
+[0:29:41 - 0:29:44] Nanti bakal dijelasin di paper, tapi menurutku masuk akal
+[0:29:44 - 0:33:18] Kayak kita hasilnya, kalau elamnya akan bisa 8 tapi cicil massalnya, tapi kita nggak langsung massal semua, langsung one shot begitu
+[0:33:18 - 0:33:24] Karena yang versi kedua tapi cicil lah yang bagian cicilnya
+[0:33:24 - 0:35:57] Ya, anggap lagi ini udah mulai eksperimen massal tapi kita cicil liatnya kalau semua dalam satu layer yang hasil dalam setiap tempat
+[0:35:57 - 0:36:13] Selasih sekali lagi nggak yang bagian decoder index tadi tuh gimana?
+[0:36:13 - 0:36:35] kelihatan kan dari index kan ada 9 operasi kan
+[0:36:35 - 0:36:57] operasi kan jadi ProceModmol terus di kombinasiin sama volt, sama inyeksi volt modelnya yang bener
+[0:36:57 - 0:37:14] setiap layer kan ada 9 operasi kan
+[0:37:14 - 0:37:20] ya kan ada 9 tuh
+[0:37:20 - 0:37:25] dan kan disini ada
+[0:37:25 - 0:37:28] bukan 10 sebenernya 9, soalnya kan dihitung dia kosong juga, tapi intinya
+[0:37:28 - 0:37:33] ProceModmol, MLP Gate ProceModmol, oke
+[0:37:33 - 0:38:14] former disitu ada 1, 2, 3
+[0:38:14 - 0:40:41] kita bahas layer ke semua volt modelnya, seperti ini, seperti ini, jadi ini semua operasinya
+[0:40:41 - 0:43:01] Aku pake MML even, 148 sih
+[0:43:01 - 0:43:14] Bisa, tolong
+[0:43:14 - 0:43:30] Angkanya kuat
+[0:43:30 - 0:43:32] Ini justifikasi yang bisa dipakai
+[0:43:32 - 0:43:34] Semuanya terukur dari data Anda sendiri
+[0:43:34 - 0:43:36] Jawaban sikatnya itu 48
+[0:43:36 - 0:43:38] dipilih empiris
+[0:43:38 - 0:43:40] ia berdasarkan
+[0:43:40 - 0:43:42] percentile ke 99
+[0:43:42 - 0:43:44] dari panjang jawaban golden
+[0:43:44 - 0:43:46] Jadi distribusi panjang
+[0:43:46 - 0:43:48] jawabannya itu
+[0:43:48 - 0:43:50] pada datanya ini
+[0:43:50 - 0:43:52] kalau golden rata-ratanya
+[0:43:52 - 0:44:06] itu 10, rata ratanya 12,9, percentil 90 nya itu 25, percentil 99 nya itu 45, maksimal 48
+[0:44:06 - 0:44:15] kalau faulty nya itu rata-rata 14,6, percentil 90 30, percentil 99 48, maksimal 48
+[0:44:15 - 0:44:22] oh jadi berdasarkan hasil ya, ok ok kita bisa belajar dari hasil kita
+[0:44:22 - 0:44:46] jadi artinya yang buat dua layer setiap penuh ya
+[0:44:46 - 0:45:53] penuhnya besok pagi yang sia-sia berantem
+[0:45:53 - 0:45:59] besok pagi aku runningnya soalnya kalau malam ini paling coba
+[0:45:59 - 0:46:10] bukan apa lebih kecil dari smoke test untuk memastikan besok paginya baru running
+[0:46:10 - 0:46:17] dan ga belasnya ga sisi
+[0:46:17 - 0:46:24] suaramu hilang ga?
+[0:46:24 - 0:46:28] menurutku kayaknya ga apa2 ya kalo mau risiko, mau running semuanya
+[0:46:28 - 0:46:30] tapi ga butuh semalam juga kan mau running
+[0:46:30 - 0:46:36] sama itu sih, paling besok bisa di geser jamnya ga pas jam 11
+[0:46:36 - 0:46:44] soalnya jam 9 aku ada ngajar ternyata
+[0:46:44 - 0:47:38] jam 11 kan masih ada ya
+[0:47:38 - 0:47:52] oh, sebelum malam
+[0:47:52 - 0:47:56] pagi mau kan?
+[0:47:56 - 0:47:59] ya, besok pagi 11
+[0:47:59 - 0:48:03] ada setting ga sih? coba kamu cek lagi
+[0:48:03 - 0:48:06] udah udah udah
+[0:48:06 - 0:48:12] salah baca
+[0:48:12 - 0:48:15] satu lagi hari minggu pagi
+[0:48:15 - 0:48:20] kita belum setting waktu, apakah kamu bisa?
+[0:48:20 - 0:48:34] pagi bisa bisa
+[0:48:34 - 0:48:38] jam sembilan bisa
+[0:48:38 - 0:48:41] jam sembilan
+[0:48:41 - 0:48:43] oh sorry aku hari minggu
+[0:48:43 - 0:48:45] aku hari minggu kayaknya gitu
+[0:48:45 - 0:48:47] ada data apa?
+[0:48:47 - 0:48:53] ada mau keluar juga
+[0:48:53 - 0:48:55] hari minggu aja kita kayak skip buat apa?
+[0:48:55 - 0:49:01] minggu malemnya
+[0:49:01 - 0:49:15] Terima kasih.

@@ -1,0 +1,42 @@
+204a205,208
+>     p.add_argument("--konfigurasi-langkah", type=int, default=0,
+>                    help="ambil tiap konfigurasi ke-k (stratified). 288/16=18 memberi "
+>                         "16 konfigurasi yang tersebar di seluruh decoder dan operasi. "
+>                         "0 atau 1 = ambil berurutan dari awal")
+383a388,393
+>     # Cuplik berselang (stratified). konfig terurut (decoder_idx, operasi), jadi
+>     # mengambil N pertama = decoder 0-1 saja: tidak ada cakupan kedalaman sama
+>     # sekali. Mengambil tiap langkah ke-k menyebar sampel ke seluruh 32 decoder
+>     # DAN memutar kesembilan operasi. Dipakai untuk uji asap 16 dari 288.
+>     if a.konfigurasi_langkah > 1:
+>         konfig = konfig[:: a.konfigurasi_langkah]
+553,555c563,573
+<                 for run_id in range(1, a.runs + 1):
+<                     daftar_bit = bits_paksa if bits_paksa else [None]
+<                     for bit in daftar_bit:
+---
+>                 # Bit_Position adalah loop LUAR, di atas run_id: seluruh pengujian
+>                 # pada bit 0 selesai dulu, baru pindah ke bit 1, dan seterusnya.
+>                 # Sebelumnya run_id yang di luar, sehingga kolom Bit_Position di
+>                 # sheet terbaca 0,1,2,...,15,0,1,2,... — dibaca sebagai acak.
+>                 # Isi barisnya TIDAK berubah: benih dan benih_soal dihitung dari
+>                 # (seed, decoder, operasi, fm, run_id, bit, k), jadi tidak
+>                 # bergantung urutan iterasi. Yang berubah hanya urutan baris,
+>                 # sehingga kunci --resume yang lama tetap cocok.
+>                 daftar_bit = bits_paksa if bits_paksa else [None]
+>                 for bit in daftar_bit:
+>                     for run_id in range(1, a.runs + 1):
+608c626,630
+<                                     total = 1
+---
+>                                     # JANGAN pakai nama 'total' di sini: itu nama
+>                                     # target jumlah baris dari baris 415, dan menimpanya
+>                                     # membuat penghitung progres melaporkan jumlah elemen
+>                                     # tensor (mis. 45.088.768) sebagai penyebut.
+>                                     n_elemen = 1
+610,611c632,633
+<                                         total *= dim
+<                                     rand_idx = int(_rng2.integers(0, total))
+---
+>                                         n_elemen *= dim
+>                                     rand_idx = int(_rng2.integers(0, n_elemen))

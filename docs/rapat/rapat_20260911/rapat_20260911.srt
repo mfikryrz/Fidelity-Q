@@ -1,0 +1,792 @@
+1
+00:00:00,000 --> 00:00:23,730
+random index bedanya apa?
+
+2
+00:00:23,730 --> 00:00:27,679
+kalau index, index apa?
+
+3
+00:00:27,679 --> 00:00:39,820
+index sama injection itu apa?
+
+4
+00:00:39,820 --> 00:01:25,760
+random index itu apa ya?
+
+5
+00:01:25,760 --> 00:03:08,460
+yang injection sama random index itu apa ya?
+
+6
+00:03:08,460 --> 00:04:28,209
+injection sama run IDX itu
+
+7
+00:04:28,209 --> 00:04:30,209
+kayak menyimpan
+
+8
+00:04:30,209 --> 00:04:32,939
+apa sih?
+
+9
+00:04:32,939 --> 00:04:37,069
+eksperimen dari baris itu mas
+
+10
+00:04:37,069 --> 00:04:39,069
+jadi kayak
+
+11
+00:04:39,069 --> 00:04:41,069
+kalau dari ininya sih
+
+12
+00:04:41,069 --> 00:04:43,069
+injection itu kayak
+
+13
+00:04:43,069 --> 00:05:01,540
+Acak bagian layar terentu, nomor terentu, nanti di random ADX-nya itu untuk menyimpan, apa sih, mengacak kembali dari posisinya itu.
+
+14
+00:05:01,540 --> 00:05:12,829
+Berat kata kayak, dia buat menyimpan eksperimennya. Jadi kalau seandainya eksperimennya itu pengen diulang lagi,
+
+15
+00:05:12,829 --> 00:05:16,829
+Nah itu tinggal diulang aja yang diinjectednya gitu
+
+16
+00:05:16,829 --> 00:05:24,589
+Nah injected, aku masuk akal menurutku injectednya, cuman random indexnya aku bingung
+
+17
+00:05:24,589 --> 00:05:42,370
+Ya itu buat menghitung elemen yang ke berapa yang dirusak
+
+18
+00:05:42,370 --> 00:05:49,540
+Random index itu kayak elemen yang kesekiannya yang dirusak
+
+19
+00:05:49,540 --> 00:05:59,110
+Injected itu berupa masukan, random index itu berupa keluarannya
+
+20
+00:05:59,110 --> 00:06:03,060
+Allah ngerti. Boleh disenderahkan nggak, penjelasannya?
+
+21
+00:06:03,060 --> 00:06:12,689
+Jadi kalau inyeksi itu kayak masuk ke...
+
+22
+00:06:12,689 --> 00:06:17,529
+Jadi intinya komputer sebenarnya tidak bisa menghasilkan angka yang benar-benar acak.
+
+23
+00:06:17,529 --> 00:06:22,649
+Dia lakukan adalah rumus matematika untuk terlihat acak.
+
+24
+00:06:22,649 --> 00:06:28,689
+Jadi konsekuensinya itu kayak kalau rumus itu dimulai dari angka awal yang sama,
+
+25
+00:06:28,689 --> 00:06:33,689
+saya akan masukkan deretat angka yang sama persis setiap kali di komputer manapun
+
+26
+00:06:33,689 --> 00:06:36,689
+angka awal itu yang disebut seed
+
+27
+00:06:37,689 --> 00:06:40,689
+ya itu kan inject seed kan udah jelas tuh
+
+28
+00:06:40,689 --> 00:06:44,689
+tapi kan random index kan apa bedanya sama inject seed random indexnya
+
+29
+00:06:44,689 --> 00:06:54,220
+kan jelas, pastikan ada butuh seed kan buat random minum angka kan
+
+30
+00:06:54,220 --> 00:06:56,220
+buat setiap kalirannya eksperimen
+
+31
+00:06:56,220 --> 00:06:58,220
+nah inject seed jelas tuh fungsinya apa
+
+32
+00:06:58,220 --> 00:07:29,889
+tapi random index itu buat apa?
+
+33
+00:07:29,889 --> 00:07:32,269
+bahasanya alien banget sih
+
+34
+00:07:32,269 --> 00:07:33,269
+kenapa?
+
+35
+00:07:33,269 --> 00:07:38,269
+Eh apa? Kayak klo deng nih, kayaknya nggak bisa bahas ini aja
+
+36
+00:07:38,269 --> 00:07:41,850
+Oh iya, apa?
+
+37
+00:07:41,850 --> 00:07:46,410
+Ini di mana dikodex ini?
+
+38
+00:07:46,410 --> 00:07:47,819
+Halas?
+
+39
+00:07:47,819 --> 00:07:51,259
+Ini di mana random index dikodenya?
+
+40
+00:07:51,259 --> 00:07:55,980
+Ini di mana maksudnya?
+
+41
+00:07:55,980 --> 00:08:01,199
+Ini random index di source code-nya buat kamu jalanin eksperimen dipakai buat apa?
+
+42
+00:08:01,199 --> 00:08:11,779
+Menandain itunya biar pas random-nya itu kedetek gitu
+
+43
+00:08:11,779 --> 00:08:14,779
+pas melakukan randomness terhadap
+
+44
+00:08:14,779 --> 00:08:17,779
+posisi bit atau apa
+
+45
+00:08:17,779 --> 00:08:18,779
+itu biar
+
+46
+00:08:20,040 --> 00:08:21,040
+di detek
+
+47
+00:08:21,040 --> 00:08:29,500
+oh buat posisi, oh yang
+
+48
+00:08:29,500 --> 00:08:31,980
+gak random lagi
+
+49
+00:08:31,980 --> 00:08:33,980
+bukan buat posisi bit, yang koordinat
+
+50
+00:08:35,679 --> 00:08:37,679
+oh ini buat random index koordinat
+
+51
+00:08:37,679 --> 00:08:43,519
+pertama kali kamu running kan
+
+52
+00:08:43,519 --> 00:08:45,519
+dulu koordinatnya kan fix di satu tempat kan
+
+53
+00:08:45,519 --> 00:08:46,519
+iya
+
+54
+00:08:46,519 --> 00:08:57,379
+tapi dulu kan ada injectitnya
+
+55
+00:08:57,379 --> 00:09:00,570
+random index walaupun kamu gak catat
+
+56
+00:09:00,570 --> 00:09:01,570
+posisi mana
+
+57
+00:09:01,570 --> 00:09:14,629
+smoke test dulu kamu pernah ada random index, random index kamu tuh ada koordinat disini
+
+58
+00:09:14,629 --> 00:09:16,730
+jadi kayak apa ya?
+
+59
+00:09:16,730 --> 00:09:20,730
+dulu kan kamu waktu injection nya gak random kan sebenernya buat koordinatnya
+
+60
+00:09:20,730 --> 00:09:30,889
+boleh di cek gak source code?
+
+61
+00:09:30,889 --> 00:09:35,799
+source code nya di itu, hugging face
+
+62
+00:09:35,799 --> 00:09:38,409
+oh source code nya nih hugging face
+
+63
+00:09:38,409 --> 00:10:46,549
+kamu bisa search screen gak?
+
+64
+00:10:46,549 --> 00:12:26,370
+disable
+
+65
+00:12:26,370 --> 00:12:27,370
+inject nya kemana?
+
+66
+00:12:27,370 --> 00:14:36,309
+harusnya ada cara hitung itu dong
+
+67
+00:14:36,309 --> 00:14:39,309
+kelihatan semua jadi satu demensi, hitung index nya
+
+68
+00:14:39,309 --> 00:14:46,879
+sit dan random index itu buat apa?
+
+69
+00:14:46,879 --> 00:18:33,349
+Subjectnya ini harus cek inferensinya kan kalau faulty bakal ada non-value kan
+
+70
+00:18:33,349 --> 00:18:38,589
+Bisa aja kayak alamnya itu ngacok banget
+
+71
+00:18:38,589 --> 00:22:14,559
+1 rupiah 19 dari 7 rupiah
+
+72
+00:22:14,559 --> 00:23:29,049
+Dan nanti pas kita coba hasilnya kita bakal kerjaan cook
+
+73
+00:23:29,049 --> 00:23:34,579
+Aku baca-baca dibugnya sih
+
+74
+00:23:34,579 --> 00:23:39,660
+Ada bagian gak bisa menahan inyeksi jadi
+
+75
+00:23:39,660 --> 00:23:43,380
+Bukan gak bisa menahan inyeksi ya
+
+76
+00:23:43,380 --> 00:23:49,720
+Ya apa, karena di inyek gitu jadinya error
+
+77
+00:23:49,720 --> 00:23:51,720
+Ini kayak supaya kamu tau aja
+
+78
+00:23:51,720 --> 00:24:00,380
+menarik soalnya, jadi kenapa hasilnya jadinya persis, jadi bit yang diinjek ke bit 14 kan
+
+79
+00:24:00,380 --> 00:24:03,500
+jadi kalau ada 16 bit artinya itu bit 15
+
+80
+00:24:03,890 --> 00:24:21,200
+jadi misalnya nih aku ada angka, terus angkanya akan terjadi paling besar
+
+81
+00:24:21,200 --> 00:24:46,019
+di posisi paling gede, 0,01 bisa meledak jadi 40 atau 400 miliar gitu
+
+82
+00:24:46,019 --> 00:25:00,039
+soalnya kan kalau FP 16 kan itu kan range nya gede, karena kan bisa dari minus berapa puluh
+
+83
+00:25:00,039 --> 00:25:13,180
+Waktu saya lihat hasilnya, saya sudah tahu penyebabnya pasti bit-bit yang gede yang menghasilkannya
+
+84
+00:25:13,180 --> 00:25:19,390
+Artinya ini sudah benar eksperimentasinya dan juga menarikkan
+
+85
+00:25:19,390 --> 00:25:26,069
+Jadi jangan, ini justru hasil-hasil seperti ini itu menurut saya lebih menarik
+
+86
+00:25:26,069 --> 00:25:29,069
+Tapi artinya ini framework-nya sudah benar sampai
+
+87
+00:25:29,069 --> 00:25:39,539
+Sebenarnya semua sampai column way sudah benar dan juga secara urutan ini sudah benar
+
+88
+00:25:39,539 --> 00:25:47,589
+Cuma ingat ya, nanti pas eksperimen masal semua layer index dan semua operasi diwinjikan
+
+89
+00:25:47,589 --> 00:25:52,170
+diavaluasi kan, jadi kayak 0, ada procs matmul, sel potensi matmulnya kan
+
+90
+00:25:52,170 --> 00:25:53,920
+gimana lu sorry?
+
+91
+00:25:53,920 --> 00:25:57,839
+nanti pas eksperimentasi maksal
+
+92
+00:26:00,380 --> 00:26:03,380
+setiap dekoder itu, setiap operasi dengan dekoder bakal dicek kan
+
+93
+00:26:03,380 --> 00:26:04,380
+iya
+
+94
+00:26:04,380 --> 00:26:06,660
+jadi
+
+95
+00:26:06,660 --> 00:26:09,390
+pas kamu awal-awal smoke test, nanti dicek ya
+
+96
+00:26:09,390 --> 00:26:12,390
+kalau setiap operasinya, setiap dekoder itu
+
+97
+00:26:12,390 --> 00:26:14,890
+diavaluasi atau enggak
+
+98
+00:26:14,890 --> 00:26:17,750
+oke oke
+
+99
+00:26:17,750 --> 00:26:22,079
+nah tinggal itu yang perlu kamu cek, tapi menurutku
+
+100
+00:26:22,079 --> 00:26:25,319
+Udah aman sih kalo kayak ngomongin
+
+101
+00:26:25,319 --> 00:26:28,609
+Sampai sini udah aman, tapi kalo lu mau ya
+
+102
+00:26:28,609 --> 00:26:34,930
+Concern-ku cuma satu ini, soalnya kan belum tau ya kalo kita eksperi, kalo kamu eksperimentasi lagi bakal gimana
+
+103
+00:26:34,930 --> 00:26:38,799
+Ini udah jelas kan kayak concern-nya apa kan?
+
+104
+00:26:38,799 --> 00:26:39,970
+Iya concern
+
+105
+00:26:39,970 --> 00:26:43,140
+Oke, jadi dari...
+
+106
+00:26:43,140 --> 00:26:46,940
+Evaluasi dekoder index-nya aja kan?
+
+107
+00:26:46,940 --> 00:26:53,099
+Bukan dekoder index, iya dekoder index, jadi setiap index harus ada small prasinya
+
+108
+00:26:53,099 --> 00:26:54,099
+Oke
+
+109
+00:26:54,099 --> 00:27:04,000
+tapi sampai sini cuma satu koncernnya, mungkin kamu sudah jadi frameworknya, cuma tinggal dilakuin aja
+
+110
+00:27:04,000 --> 00:27:11,430
+intinya sampai column way sudah benar, and prom token itu cuma jumlah token di prom nya
+
+111
+00:27:11,430 --> 00:27:26,819
+itu cuma jumlah token di prom nya, teks itu artinya setiap output kamu batasin ke 48
+
+112
+00:27:26,819 --> 00:27:31,619
+ini yang setting kamu nya atau dapat angka 48 dari mana?
+
+113
+00:27:31,619 --> 00:27:37,670
+Kayaknya dari apa, dari eksperimennya si Claude deh
+
+114
+00:27:37,670 --> 00:27:43,650
+Si Claude, oh yaudah intinya dia langsung seti ke 48
+
+115
+00:27:43,650 --> 00:27:46,710
+Tapi gak apa-apa juga sih, soalnya kan kita
+
+116
+00:27:47,710 --> 00:27:49,809
+Kita itu outputnya cuma sedikit
+
+117
+00:27:49,809 --> 00:27:54,799
+Dan kalau sampai panjang pun gak bakal make sense kalau sampai panjang
+
+118
+00:27:54,799 --> 00:27:59,799
+Apa mau ditambah batas topeng?
+
+119
+00:27:59,799 --> 00:28:03,799
+Bukan ditambahin, tapi harus ada rasional
+
+120
+00:28:03,799 --> 00:28:07,799
+ada alasan kenapa kita batasnya 4 latan gitu
+
+121
+00:28:07,799 --> 00:28:11,799
+cuma kayak menurutku karena data setnya intinya kayak
+
+122
+00:28:11,799 --> 00:28:16,119
+coba cari rasionalisasi atau alasan kenapa 4 latan, aku nggak apa-apa
+
+123
+00:28:16,119 --> 00:28:18,119
+justru aku suka makin pendek, sebaiknya lebih cepat kan
+
+124
+00:28:18,119 --> 00:28:23,359
+masa ingatan aku aja tuh
+
+125
+00:28:23,359 --> 00:28:25,359
+kalau nggak ngelop itu karena
+
+126
+00:28:25,359 --> 00:28:28,359
+yang waktu yang gagal
+
+127
+00:28:28,359 --> 00:28:31,359
+cuma ngambil
+
+128
+00:28:31,359 --> 00:28:34,359
+yang 5 shot gitu yang
+
+129
+00:28:34,359 --> 00:28:44,650
+HBCD doang, itu kan ganda cepat, terus aku minta dia buat ambil yang pilihan ganda plus tax
+
+130
+00:28:44,650 --> 00:28:52,650
+Itu 48 itu karena kayak rata-rata jawaban di pilihan ganda itu 48 token gitu
+
+131
+00:28:52,650 --> 00:28:55,509
+Kalau gak salah
+
+132
+00:28:55,509 --> 00:28:57,509
+Rata-rata 48 ya?
+
+133
+00:28:57,509 --> 00:28:59,509
+Oh rata-rata, oke kita bisa bilang begitu deh
+
+134
+00:28:59,509 --> 00:29:15,420
+Kalo lebih panjang gitu, takutnya LLM yang fold gitu, dia malah melantur gitu
+
+135
+00:29:15,420 --> 00:29:28,670
+Kalo lebih panjang, takutnya LLM yang default itu lebih melantur gitu daripada golden
+
+136
+00:29:28,670 --> 00:29:36,440
+Kalo lebih panjang, takutnya LLMnya, oh iya, fold-foldnya lebih lebar ya?
+
+137
+00:29:36,440 --> 00:29:37,140
+Iya
+
+138
+00:29:37,140 --> 00:29:41,829
+Gapapa deh, kalo rasionalisasi kaya gitu
+
+139
+00:29:41,829 --> 00:29:44,950
+Nanti bakal dijelasin di paper, tapi menurutku masuk akal
+
+140
+00:29:44,950 --> 00:33:18,769
+Kayak kita hasilnya, kalau elamnya akan bisa 8 tapi cicil massalnya, tapi kita nggak langsung massal semua, langsung one shot begitu
+
+141
+00:33:18,769 --> 00:33:24,130
+Karena yang versi kedua tapi cicil lah yang bagian cicilnya
+
+142
+00:33:24,130 --> 00:35:57,820
+Ya, anggap lagi ini udah mulai eksperimen massal tapi kita cicil liatnya kalau semua dalam satu layer yang hasil dalam setiap tempat
+
+143
+00:35:57,820 --> 00:36:13,699
+Selasih sekali lagi nggak yang bagian decoder index tadi tuh gimana?
+
+144
+00:36:13,699 --> 00:36:35,510
+kelihatan kan dari index kan ada 9 operasi kan
+
+145
+00:36:35,510 --> 00:36:57,289
+operasi kan jadi ProceModmol terus di kombinasiin sama volt, sama inyeksi volt modelnya yang bener
+
+146
+00:36:57,289 --> 00:37:14,599
+setiap layer kan ada 9 operasi kan
+
+147
+00:37:14,599 --> 00:37:20,440
+ya kan ada 9 tuh
+
+148
+00:37:20,440 --> 00:37:25,059
+dan kan disini ada
+
+149
+00:37:25,059 --> 00:37:28,610
+bukan 10 sebenernya 9, soalnya kan dihitung dia kosong juga, tapi intinya
+
+150
+00:37:28,610 --> 00:37:33,070
+ProceModmol, MLP Gate ProceModmol, oke
+
+151
+00:37:33,070 --> 00:38:14,360
+former disitu ada 1, 2, 3
+
+152
+00:38:14,360 --> 00:40:41,510
+kita bahas layer ke semua volt modelnya, seperti ini, seperti ini, jadi ini semua operasinya
+
+153
+00:40:41,510 --> 00:43:01,849
+Aku pake MML even, 148 sih
+
+154
+00:43:01,849 --> 00:43:14,860
+Bisa, tolong
+
+155
+00:43:14,860 --> 00:43:30,329
+Angkanya kuat
+
+156
+00:43:30,329 --> 00:43:32,329
+Ini justifikasi yang bisa dipakai
+
+157
+00:43:32,329 --> 00:43:34,329
+Semuanya terukur dari data Anda sendiri
+
+158
+00:43:34,329 --> 00:43:36,329
+Jawaban sikatnya itu 48
+
+159
+00:43:36,329 --> 00:43:38,329
+dipilih empiris
+
+160
+00:43:38,329 --> 00:43:40,329
+ia berdasarkan
+
+161
+00:43:40,329 --> 00:43:42,329
+percentile ke 99
+
+162
+00:43:42,329 --> 00:43:44,329
+dari panjang jawaban golden
+
+163
+00:43:44,329 --> 00:43:46,329
+Jadi distribusi panjang
+
+164
+00:43:46,329 --> 00:43:48,329
+jawabannya itu
+
+165
+00:43:48,329 --> 00:43:50,329
+pada datanya ini
+
+166
+00:43:50,329 --> 00:43:52,329
+kalau golden rata-ratanya
+
+167
+00:43:52,329 --> 00:44:06,329
+itu 10, rata ratanya 12,9, percentil 90 nya itu 25, percentil 99 nya itu 45, maksimal 48
+
+168
+00:44:06,329 --> 00:44:15,329
+kalau faulty nya itu rata-rata 14,6, percentil 90 30, percentil 99 48, maksimal 48
+
+169
+00:44:15,329 --> 00:44:22,420
+oh jadi berdasarkan hasil ya, ok ok kita bisa belajar dari hasil kita
+
+170
+00:44:22,420 --> 00:44:46,599
+jadi artinya yang buat dua layer setiap penuh ya
+
+171
+00:44:46,599 --> 00:45:53,099
+penuhnya besok pagi yang sia-sia berantem
+
+172
+00:45:53,099 --> 00:45:59,099
+besok pagi aku runningnya soalnya kalau malam ini paling coba
+
+173
+00:45:59,099 --> 00:46:10,070
+bukan apa lebih kecil dari smoke test untuk memastikan besok paginya baru running
+
+174
+00:46:10,070 --> 00:46:17,670
+dan ga belasnya ga sisi
+
+175
+00:46:17,670 --> 00:46:24,250
+suaramu hilang ga?
+
+176
+00:46:24,250 --> 00:46:28,250
+menurutku kayaknya ga apa2 ya kalo mau risiko, mau running semuanya
+
+177
+00:46:28,250 --> 00:46:30,250
+tapi ga butuh semalam juga kan mau running
+
+178
+00:46:30,250 --> 00:46:36,949
+sama itu sih, paling besok bisa di geser jamnya ga pas jam 11
+
+179
+00:46:36,949 --> 00:46:44,949
+soalnya jam 9 aku ada ngajar ternyata
+
+180
+00:46:44,949 --> 00:47:38,340
+jam 11 kan masih ada ya
+
+181
+00:47:38,340 --> 00:47:52,380
+oh, sebelum malam
+
+182
+00:47:52,380 --> 00:47:56,860
+pagi mau kan?
+
+183
+00:47:56,860 --> 00:47:59,860
+ya, besok pagi 11
+
+184
+00:47:59,860 --> 00:48:03,619
+ada setting ga sih? coba kamu cek lagi
+
+185
+00:48:03,619 --> 00:48:06,139
+udah udah udah
+
+186
+00:48:06,139 --> 00:48:12,139
+salah baca
+
+187
+00:48:12,139 --> 00:48:15,159
+satu lagi hari minggu pagi
+
+188
+00:48:15,159 --> 00:48:20,780
+kita belum setting waktu, apakah kamu bisa?
+
+189
+00:48:20,780 --> 00:48:34,840
+pagi bisa bisa
+
+190
+00:48:34,840 --> 00:48:38,500
+jam sembilan bisa
+
+191
+00:48:38,500 --> 00:48:41,590
+jam sembilan
+
+192
+00:48:41,590 --> 00:48:43,619
+oh sorry aku hari minggu
+
+193
+00:48:43,619 --> 00:48:45,619
+aku hari minggu kayaknya gitu
+
+194
+00:48:45,619 --> 00:48:47,619
+ada data apa?
+
+195
+00:48:47,619 --> 00:48:53,429
+ada mau keluar juga
+
+196
+00:48:53,429 --> 00:48:55,530
+hari minggu aja kita kayak skip buat apa?
+
+197
+00:48:55,530 --> 00:49:01,019
+minggu malemnya
+
+198
+00:49:01,019 --> 00:49:15,460
+Terima kasih.
+

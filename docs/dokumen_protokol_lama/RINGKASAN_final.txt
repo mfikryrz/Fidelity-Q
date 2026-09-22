@@ -1,0 +1,28 @@
+=== SUDAH DIGANTIKAN — protokol LAMA (sebelum revisi 10 Sep 2026). ===
+=== Protokol yang berlaku: ../README_FP16.md                            ===
+
+RINGKASAN CAKUPAN — mode pg-teks (tanpa penilaian)
+==============================================================
+Baris           : 5,997
+Kombinasi        : 288 / 288  (decoder x operasi)
+Fault model      : 6 / 6
+  INPUT              1,004
+  WEIGHT             1,002
+  INPUT16            1,001
+  WEIGHT16             999
+  RANDOM               997
+  RANDOM_BITFLIP       994
+
+Teks mentah
+  golden kosong  : 0   (harus 0)
+  faulty kosong  : 9
+  teks berbeda   : 440 = 7.34%  (harus > 0)
+  panjang median : 5 kata
+  token golden   : median 10, maks 48  (batas 48)
+  golden mentok  : 72 baris  (harus 0 — kalau tidak, naikkan --token-teks)
+  faulty mentok  : 298 baris = 5.0%  (bukan masalah: model rusak mengoceh)
+
+Kecepatan        : 2.993 detik/baris
+
+Penilaian (kesamaan, is_error, dst) dihitung terpisah:
+  python hitung_penilaian.py hasil.csv hasil_dinilai.csv

@@ -1,0 +1,155 @@
+# Lingkungan yang terbukti menjalankan eksperimen massal 43.120 injeksi
+# Instance Vast m:39959 · A100-SXM4-80GB · 2026-08-29
+#
+# ====================================================================
+# TAMBAHAN 2026-08-31 — run mode pg-teks, instance 49351634
+# ====================================================================
+#
+# PENTING: req_rtenv.txt yang lama BOCOR. Ia diturunkan dari daftar di
+# bawah tapi kehilangan onnxruntime-gpu dan onnxruntime-extensions,
+# sehingga bootstrap lolos tanpa error tapi `import onnxruntime` gagal.
+# Sudah diperbaiki: req_rtenv.txt sekarang 67 paket.
+#
+# Biaya TERUKUR mode pg-teks (A100-SXM4-80GB, Llama-2-7b FP16):
+#   detik per baris  : 1,96  (tunak, di luar pemanasan)
+#   pemanasan        : 22 dtk pada baris pertama tiap PROSES
+#   muat model       : ~14 dtk tiap proses
+#   bangun 1 graf    : 0,33 dtk   <- BUKAN 2,4 dtk seperti dikira semula
+#   overhead tetap   : ~0,52 jam untuk sekali lewat 288 konfigurasi
+#
+# Mode pg-teks ~9x lebih mahal per baris daripada mode pg, karena golden
+# menulis 9-12 token dan faulty kadang sampai batas 48 -> ~20 forward pass
+# per baris, bukan 2. Jangan pakai anggaran run mode pg untuk mode ini.
+#
+# ====================================================================
+# PELAJARAN MAHAL 2026-09-01 — soal SKALA dan PARALELISME
+# ====================================================================
+#
+# 1. JANGAN menjalankan >1 proses per GPU.
+#    Tanpa MPS, konteks CUDA dari proses berbeda BERGILIRAN, bukan paralel.
+#    Terukur: 2 proses/kartu -> `detik` per baris naik 2,32 -> 11,09 (4,8x)
+#    sementara prosesnya cuma 4x. Hasil agregat SAMA dengan 1 proses, ditambah
+#    OOM arena yang membuang 42% baris (bfc_arena.cc:376). Baris yang gagal
+#    tidak ditulis sama sekali -> cakupan berlubang tanpa peringatan.
+#
+# 2. Multi-GPU boleh, tapi 1 proses per kartu. Kartu berbeda = paralelisme
+#    sungguhan. Yang tidak berguna adalah menumpuk proses di kartu yang sama.
+#
+# 3. JANGAN mengukur laju dengan median(detik).
+#    Itu mengabaikan ekor lambat dan jeda antar-baris. Kesalahan ini membuat
+#    saya melaporkan 1,262 baris/detik padahal produksi nyata 0,25 - meleset 5x,
+#    dan menghasilkan anggaran $29 untuk pekerjaan yang sebenarnya ~$48.
+#    Pakai JAM DINDING atas jendela >= 10 menit, supaya restart potongan
+#    (muat model ~40 dtk tiap ~7 menit) ikut terhitung.
+#
+# 4. Laju nyata 1 proses, mode pg-teks, A100-80GB: 0,25 - 0,35 baris/detik.
+#    Bergantung DISK, bukan GPU (utilisasi GPU cuma 12% pada 1 proses).
+#    Mesin disk 2.169 MB/s -> 0,25 ; mesin lintasan 1 -> 0,35.
+#    Untuk lebih cepat: cari disk lebih kencang, BUKAN lebih banyak GPU.
+#
+# 5. Anggaran 43.200 baris (dari 3.456): ~40-44 jam, ~$45-48 pada $1,10/jam.
+#    1x A100 $1,10/jam LEBIH MURAH per baris daripada 2x A100 $3,385/jam.
+#
+# 6. Token HF JANGAN di baris perintah. `hf --token "$X"` membuatnya terbaca
+#    siapa pun lewat `ps` di mesin sewaan. Pakai variabel lingkungan HF_TOKEN.
+#    (bootstrap_vast.sh sudah diperbaiki 2026-09-01.)
+#
+# --token-teks 48: uji asap (decoder 0 saja) menunjukkan golden maks 27 token,
+# TAPI pada pool penuh tidak begitu. Diukur pada 557 baris run sebenarnya:
+#   golden menyentuh 48 : 12 baris = 2,2%  (hanya 2 soal unik, teks opsi panjang:
+#                                           high_school_european_history, professional_law)
+#   faulty menyentuh 48 : 23 baris = 4,1%
+#   faulty kosong       :  2 baris (token pertama = baris-baru; model terlalu rusak
+#                                   untuk menjawab. Bukan bug -- ini temuan.)
+# Jangan ubah --token-teks di tengah run: dataset jadi terbelah. Baris terpotong
+# bisa disaring lewat n_tok_golden >= batas_token_teks.
+# Untuk run baru dari nol yang ingin bebas potong: --token-teks 96.
+
+## Perangkat
+# GPU: NVIDIA A100-SXM4-80GB, 81920 MiB, 8.0, 580.159.03
+# CPU jatah : 30 core (cgroup v1; nproc melaporkan 128)
+# RAM       : 503 GB
+# Disk      : 80 GB
+# OS        : Ubuntu 24.04.4 LTS
+
+## Variabel lingkungan
+FIDELITY_GPU_LAYERS=32          # seluruh 32 decoder di GPU
+ORT_GPU_MEM_LIMIT_GB=30         # BUKAN VRAM-4: arena ORT tidak menyusut
+FIDELITY_POOL_GB=30
+ORT_THREADS=30                  # dari cgroup, bukan nproc
+OMP_NUM_THREADS=30
+POTONGAN_CFG=8                  # 8 konfigurasi per proses -> VRAM direset
+
+## Python
+# Python 3.10.21 (dipasang lewat uv, Ubuntu 24.04 hanya punya 3.12)
+
+## Paket rtenv (lengkap)
+aiohappyeyeballs==2.7.1
+aiohttp==3.14.3
+aiosignal==1.4.0
+anyio==4.14.2
+async-timeout==5.0.1
+attrs==26.1.0
+certifi==2026.7.22
+charset-normalizer==3.5.1
+click==8.4.2
+colorama==0.4.6
+coloredlogs==15.0.1
+contourpy==1.3.2
+cycler==0.12.1
+datasets==5.0.1
+dill==0.4.1
+exceptiongroup==1.3.1
+filelock==3.32.3
+flatbuffers==25.12.19
+fonttools==4.63.0
+frozenlist==1.8.0
+fsspec==2026.6.0
+h11==0.16.0
+hf-xet==1.6.0
+httpcore==1.0.9
+httpx==0.28.1
+huggingface_hub==1.27.0
+humanfriendly==10.0
+idna==3.18
+kiwisolver==1.5.0
+loguru==0.7.3
+lxml==6.1.1
+matplotlib==3.10.9
+ml_dtypes==0.5.4
+mpmath==1.3.0
+multidict==6.7.1
+multiprocess==0.70.19
+numpy==1.26.4
+onnx==1.17.0
+onnx_graphsurgeon==0.6.1
+onnxconverter-common==1.16.0
+onnxruntime_extensions==0.15.2
+onnxruntime-gpu==1.20.2
+packaging==26.3
+pandas==2.3.3
+pillow==12.3.0
+pip==26.2.1
+portalocker==4.1.0
+propcache==0.5.2
+protobuf==3.20.3
+psutil==7.2.2
+pyarrow==25.0.1
+pyparsing==3.3.2
+python-dateutil==2.9.0.post0
+pytz==2026.3.post1
+PyYAML==6.0.3
+regex==2026.7.19
+requests==2.34.2
+sacrebleu==2.6.0
+sentencepiece==0.2.2
+setuptools==79.0.1
+six==1.17.0
+sympy==1.14.0
+tabulate==0.10.0
+tqdm==4.70.0
+typing_extensions==4.16.0
+tzdata==2026.3
+urllib3==2.7.0
+xxhash==4.0.0
+yarl==1.24.5
