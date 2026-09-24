@@ -4,19 +4,36 @@
 
 ```bash
 cd src/fp16
-export HF_TOKEN=hf_xxxxxxxxxxxxx
+export HF_TOKEN=hf_xxxxxxxxxxxxx     # token read-only asli
 
 bash runner/bootstrap_vast.sh 10 40
+# GAGAL "kode tidak ditemukan" (tahap 30)? Repo kode default privat, token-mu
+# tidak punya akses -- salin toolkit dasar manual dari cadangan yang punya
+# FIdelity-ONNX-master lengkap, dari KOMPUTER LOKAL (bukan di server):
+#   rsync -a --exclude='injection_llm/' --exclude='injection_llm_smoke/' --exclude='__pycache__/' \
+#     -e "ssh -p PORT" /path/cadangan/code/FIdelity-ONNX-master/ \
+#     root@HOST:/workspace/fidelity/running_experiment_7b/repo/FIdelity-ONNX-master/
+#   rsync -a -e "ssh -p PORT" /path/cadangan/code/mmlu_loglik_bench.py \
+#     /path/cadangan/code/01_phase1_export.py root@HOST:/workspace/fidelity/running_experiment_7b/
+# lalu ulangi persis perintah di atas TAPI dengan "10 30" (skip 40, toolkit sudah manual)
 
 ROOT=/workspace/fidelity
 mkdir -p "$ROOT/running_experiment_7b/work"
 gunzip -c "$ROOT/_dl/code/mmlu_pool.csv.gz" > "$ROOT/running_experiment_7b/work/mmlu_pool.csv"
+# .gz di atas tidak ada (tahap 30 dilewati manual)? scp langsung dari komputer lokal:
+#   results/fp16/pelengkap/work/mmlu_pool.csv -> ROOT/running_experiment_7b/work/mmlu_pool.csv
 
 cp config/fp16.env.example config/fp16.env
 ./setup.sh
+# GAGAL load onnx_bitflip.so ("version VERS_x.y.z not found")? .so yang kamu
+# punya butuh versi onnxruntime spesifik -- cocokkan persis ke pesan errornya:
+#   /workspace/fidelity/rtenv/bin/pip install -q onnxruntime-gpu==X.Y.Z
+#   cd /workspace/fidelity/rtenv/lib/python3.10/site-packages/onnxruntime/capi/
+#   ln -sf $(ls libonnxruntime.so.1.*) libonnxruntime.so.1
+#   ln -sf $(ls libonnxruntime.so.1.*) libonnxruntime.so
 
-./run.sh --preset smoke
-./run.sh --preset full
+ROOT=/workspace/fidelity FIDELITY_USE_TRT=0 ./run.sh --preset smoke
+ROOT=/workspace/fidelity FIDELITY_USE_TRT=0 ./run.sh --preset full
 ./run.sh --status
 ```
 
@@ -26,9 +43,11 @@ cp config/fp16.env.example config/fp16.env
 
 ```bash
 cd src/int8
-export HF_TOKEN=hf_xxxxxxxxxxxxx
+export HF_TOKEN=hf_xxxxxxxxxxxxx     # token read-only asli
 
 bash ../fp16/runner/bootstrap_vast.sh 10 30
+# GAGAL "kode tidak ditemukan" (tahap 30)? sama seperti FP16 di atas -- salin
+# toolkit dasar manual dari cadangan, lalu ulangi baris di atas.
 
 ROOT=/workspace/fidelity
 CODE=$ROOT/running_experiment_7b
@@ -36,6 +55,8 @@ INT8D=$CODE/onnx/onnx_int8
 mkdir -p "$INT8D" "$CODE/work"
 
 gunzip -c "$ROOT/_dl/code/mmlu_pool.csv.gz" > "$CODE/work/mmlu_pool.csv"
+# .gz tidak ada (tahap 30 manual)? scp results/int8/pelengkap/work/mmlu_pool.csv
+# (atau results/fp16/pelengkap/work/mmlu_pool.csv -- isinya sama) ke path di atas.
 
 command -v zstd >/dev/null || apt-get install -y zstd
 
@@ -44,15 +65,26 @@ command -v zstd >/dev/null || apt-get install -y zstd
 for z in "$ROOT"/_dl_int8/int8/portable/instance_49721366_v1/onnx/*.onnx.zst; do
   zstd -q -d -f "$z" -o "$INT8D/$(basename "${z%.zst}")"
 done
+# repo dataset di atas juga privat/tidak bisa diakses? Ekspor manual dari bobot
+# HF publik saja (lebih lambat, ~15-20 menit, tapi tidak butuh repo privat):
+#   "$ROOT/expenv/bin/python" "$CODE/repo/FIdelity-ONNX-master/export_llama_int8.py" \
+#     --repo "$CODE/repo/FIdelity-ONNX-master" --model_id NousResearch/Llama-2-7b-hf --out "$INT8D"
+# (skrip di atas otomatis mengunduh tokenizer juga -- lewati baris hf download tokenizer di bawah)
 
 "$ROOT/rtenv/bin/hf" download NousResearch/Llama-2-7b-hf tokenizer.model --local-dir "$ROOT/_dl_tok"
 cp "$ROOT/_dl_tok/tokenizer.model" "$INT8D/tokenizer.model"
 
 cp config/int8.env.example config/int8.env
 ./setup.sh
+# GAGAL load onnx_bitflip.so? Sama seperti troubleshooting FP16 bagian 1 di atas.
 
-./run.sh --preset smoke
-./run.sh --preset full
+# ganti dari FP16 ke INT8 di server yang SAMA? injection_llm/*.json lama (target
+# tensor FP16) harus dihapus dulu -- jumlahnya kebetulan sama (288) jadi setup.sh
+# TIDAK mendeteksi ini salah dengan sendirinya:
+#   rm -f "$CODE/repo/FIdelity-ONNX-master/injection_llm/"*.json && ./setup.sh
+
+ROOT=/workspace/fidelity FIDELITY_USE_TRT=0 ./run.sh --preset smoke
+ROOT=/workspace/fidelity FIDELITY_USE_TRT=0 ./run.sh --preset full
 ./run.sh --status
 ```
 
@@ -86,8 +118,8 @@ gunzip -c "$ROOT/_dl/code/mmlu_pool.csv.gz" > "$CODE/work/mmlu_pool.csv"
   --out "$CODE/onnx/_onnx_raw_fp32" --fp16 "$CODE/onnx/onnx_fp16"
 
 ./setup.sh
-./run.sh --preset smoke
-./run.sh --preset full
+ROOT=/workspace/fidelity FIDELITY_USE_TRT=0 ./run.sh --preset smoke
+ROOT=/workspace/fidelity FIDELITY_USE_TRT=0 ./run.sh --preset full
 ./run.sh --status
 ```
 
@@ -117,8 +149,8 @@ gunzip -c "$ROOT/_dl/code/mmlu_pool.csv.gz" > "$CODE/work/mmlu_pool.csv"
 cp "$ROOT/_dl_tok/tokenizer.model" "$CODE/onnx/onnx_int8/tokenizer.model"
 
 ./setup.sh
-./run.sh --preset smoke
-./run.sh --preset full
+ROOT=/workspace/fidelity FIDELITY_USE_TRT=0 ./run.sh --preset smoke
+ROOT=/workspace/fidelity FIDELITY_USE_TRT=0 ./run.sh --preset full
 ./run.sh --status
 ```
 
@@ -153,81 +185,11 @@ gunzip -c "$ROOT/_dl/code/mmlu_pool.csv.gz" > "$CODE/work/mmlu_pool.csv"
   --model-config "$REPO/configs/my_model.json"
 
 ./setup.sh   # jalan lagi -- pakai nama operasi hasil discover_operasi.py
-./run.sh --preset smoke
-./run.sh --preset full
+ROOT=/workspace/fidelity FIDELITY_USE_TRT=0 ./run.sh --preset smoke
+ROOT=/workspace/fidelity FIDELITY_USE_TRT=0 ./run.sh --preset full
 ```
 
 ```bash
 # INT8 untuk model lain: BELUM BISA -- export_llama_int8.py hardcode
 # act_scales/llama-2-7b.pt, belum ada skrip kalibrasi SmoothQuant untuk model lain.
 ```
-
----
-
-## 4. Kalau gagal — temuan dari verifikasi instance H100 nyata (24 Sep 2026)
-
-### Tahap 30 (`bootstrap_vast.sh`) gagal, "kode tidak ditemukan"
-
-Repo kode default (`mfikryrz/llama2-7b-fidelity-onnx-fp16`) **privat** —
-butuh `HF_TOKEN` asli dengan akses. Kalau tidak punya akses, salin toolkit
-dasar manual dari cadangan lain yang punya `FIdelity-ONNX-master` lengkap,
-dari **komputer lokal** (bukan di server):
-
-```bash
-rsync -a --exclude='injection_llm/' --exclude='injection_llm_smoke/' --exclude='__pycache__/' \
-  -e "ssh -p PORT" \
-  /path/ke/cadangan/code/FIdelity-ONNX-master/ \
-  root@HOST:/workspace/fidelity/running_experiment_7b/repo/FIdelity-ONNX-master/
-rsync -a -e "ssh -p PORT" \
-  /path/ke/cadangan/code/mmlu_loglik_bench.py /path/ke/cadangan/code/01_phase1_export.py \
-  root@HOST:/workspace/fidelity/running_experiment_7b/
-rsync -a -e "ssh -p PORT" \
-  /path/ke/hasil_pgteks/results/fp16/pelengkap/work/mmlu_pool.csv \
-  root@HOST:/workspace/fidelity/running_experiment_7b/work/mmlu_pool.csv
-```
-
-Lalu `export HF_TOKEN=apa_saja` (dummy, cuma perlu tidak kosong) dan
-`bootstrap_vast.sh 10 30` (skip 40 -- toolkit sudah ada manual).
-
-### "Failed to load library .../onnx_bitflip.so ... version 'VERS_x.y.z' not found"
-
-`onnx_bitflip.so` yang kamu punya minta versi `onnxruntime` tertentu lewat
-symbol version yang KETAT (beda dari `req_rtenv.txt`==1.20.2 kalau
-toolkit-nya dipinjam dari cadangan lain). Cocokkan persis ke versi yang
-diminta pesan errornya:
-
-```bash
-/workspace/fidelity/rtenv/bin/pip install -q onnxruntime-gpu==X.Y.Z   # ganti sesuai pesan error
-cd /workspace/fidelity/rtenv/lib/python3.10/site-packages/onnxruntime/capi/
-ln -sf $(ls libonnxruntime.so.1.*) libonnxruntime.so.1
-ln -sf $(ls libonnxruntime.so.1.*) libonnxruntime.so
-```
-
-### Baris `[err] ... Failed to load library libonnxruntime_providers_tensorrt.so`, lalu "Falling back to ['CPUExecutionProvider']" berkali-kali
-
-`memory_pool.py` mencoba TensorRT duluan secara default, gagal (TensorRT
-tidak terpasang), lalu diam-diam jatuh ke CPU murni (sangat lambat, 7B di
-CPU). Matikan lewat env var resmi:
-
-```bash
-ROOT=/workspace/fidelity FIDELITY_USE_TRT=0 ./run.sh --preset smoke
-```
-
-### `bootstrap_vast.sh` melapor GAGAL padahal 35/35 ONNX sudah sehat
-
-Bug di baris terakhir skrip (exit code skrip = exit code pengecekan
-`ringkas_vast.py`, yang memang tidak ada untuk run `10 40`/`10 30`) —
-**sudah diperbaiki** di `src/fp16/runner/bootstrap_vast.sh`. Kalau masih
-kejadian, pastikan pakai salinan terbaru dari repo ini.
-
-### Ganti presisi (FP16↔INT8) di server yang SAMA
-
-`injection_llm/*.json` dipakai bersama tapi target tensornya beda per
-presisi (jumlah filenya kebetulan sama, 288, jadi `setup.sh` tidak
-mendeteksi salah). Hapus dulu sebelum ganti presisi:
-
-```bash
-rm -f /workspace/fidelity/running_experiment_7b/repo/FIdelity-ONNX-master/injection_llm/*.json
-```
-
-lalu jalankan `./setup.sh` lagi di folder presisi yang baru.
