@@ -104,8 +104,11 @@ FP16:
 
 ```bash
 cd src/fp16
-export HF_TOKEN=hf_xxx        # tetap wajib diisi utk preflight, walau bobotnya lokal
+export HF_TOKEN=hf_xxx        # tetap wajib diisi utk preflight (boleh asal-asalan), walau bobotnya lokal
 bash runner/bootstrap_vast.sh 10 30      # JANGAN lanjut ke 40 -- itu ONNX bobot HF asli, bukan bobot lokalmu
+# GAGAL "kode tidak ditemukan" (tahap 30)? Repo kode default privat -- salin
+# toolkit dasar manual dari cadangan (lihat bagian 1), lalu ulangi baris di atas.
+# Ini satu-satunya sentuhan HF yang tersisa di jalur model lokal.
 
 cp config/fp16.env.example config/fp16.env
 # isi MODEL_ID=/path/ke/model/lokal di config/fp16.env (wajib: config.json + *.safetensors langsung di situ)
@@ -133,8 +136,10 @@ INT8 (act_scales/llama-2-7b.pt yang dipakai tetap valid -- arsitekturnya sama):
 
 ```bash
 cd src/int8
-export HF_TOKEN=hf_xxx
+export HF_TOKEN=hf_xxx        # preflight saja, boleh asal-asalan (lihat bagian 1)
 bash ../fp16/runner/bootstrap_vast.sh 10 30
+# GAGAL "kode tidak ditemukan" (tahap 30)? Sama seperti FP16 di atas -- salin
+# toolkit dasar manual dari cadangan (lihat bagian 1), lalu ulangi baris di atas.
 
 cp config/int8.env.example config/int8.env
 # isi MODEL_ID=/path/ke/model/lokal di config/int8.env
@@ -151,8 +156,14 @@ gunzip -c "$ROOT/_dl/code/mmlu_pool.csv.gz" > "$CODE/work/mmlu_pool.csv"
 "$ROOT/expenv/bin/python" "$REPO/export_llama_int8.py" \
   --repo "$REPO" --model_id "$MODEL_ID" --out "$CODE/onnx/onnx_int8"
 
-"$ROOT/rtenv/bin/hf" download NousResearch/Llama-2-7b-hf tokenizer.model --local-dir "$ROOT/_dl_tok"
-cp "$ROOT/_dl_tok/tokenizer.model" "$CODE/onnx/onnx_int8/tokenizer.model"
+# tokenizer.model -- pakai punya $MODEL_ID dulu kalau ada (biasanya memang ada
+# di folder model lokal), HF cuma fallback kalau benar-benar tidak ada:
+if [ -f "$MODEL_ID/tokenizer.model" ]; then
+  cp "$MODEL_ID/tokenizer.model" "$CODE/onnx/onnx_int8/tokenizer.model"
+else
+  "$ROOT/rtenv/bin/hf" download NousResearch/Llama-2-7b-hf tokenizer.model --local-dir "$ROOT/_dl_tok"
+  cp "$ROOT/_dl_tok/tokenizer.model" "$CODE/onnx/onnx_int8/tokenizer.model"
+fi
 
 ./setup.sh
 ROOT=/workspace/fidelity FIDELITY_USE_TRT=0 ./run.sh --preset smoke
@@ -164,8 +175,11 @@ ROOT=/workspace/fidelity FIDELITY_USE_TRT=0 ./run.sh --preset full
 
 ```bash
 cd src/fp16   # FP16 dulu -- wajib walau targetmu INT8
-export HF_TOKEN=hf_xxx        # lewati kalau MODEL_ID path lokal
+export HF_TOKEN=hf_xxx        # preflight saja, boleh asal-asalan walau MODEL_ID path lokal (lihat bagian 1)
 bash runner/bootstrap_vast.sh 10 30      # JANGAN lanjut ke 40 -- itu ONNX Llama-2-7B, bukan modelmu
+# GAGAL "kode tidak ditemukan" (tahap 30)? Sama seperti bagian 1 -- salin
+# toolkit dasar manual dari cadangan, lalu ulangi baris di atas.
+# Kalau MODEL_ID di bawah path lokal: ini satu-satunya sentuhan HF yang tersisa.
 
 cp config/fp16.env.example config/fp16.env
 # isi MODEL_ID=... di config/fp16.env, lalu:
