@@ -4,7 +4,10 @@
 
 ```bash
 cd src/fp16
-export HF_TOKEN=hf_xxxxxxxxxxxxx     # token read-only asli
+export HF_TOKEN=hf_xxxxxxxxxxxxx     # preflight cuma cek TIDAK KOSONG -- boleh asal-asalan
+                                      # kalau kamu mau jalur manual (tanpa akses repo privat)
+                                      # di bawah; isi TOKEN ASLI cuma kalau mau tahap 30/40
+                                      # otomatis (tarik dari repo privat) yang sukses.
 
 bash runner/bootstrap_vast.sh 10 40
 # GAGAL "kode tidak ditemukan" (tahap 30)? Repo kode default privat, token-mu
@@ -43,7 +46,10 @@ ROOT=/workspace/fidelity FIDELITY_USE_TRT=0 ./run.sh --preset full
 
 ```bash
 cd src/int8
-export HF_TOKEN=hf_xxxxxxxxxxxxx     # token read-only asli
+export HF_TOKEN=hf_xxxxxxxxxxxxx     # preflight cuma cek TIDAK KOSONG -- boleh asal-asalan
+                                      # kalau kamu mau jalur manual (tanpa akses repo privat)
+                                      # di bawah; isi TOKEN ASLI cuma kalau mau tahap 30/40
+                                      # otomatis (tarik dari repo privat) yang sukses.
 
 bash ../fp16/runner/bootstrap_vast.sh 10 30
 # GAGAL "kode tidak ditemukan" (tahap 30)? sama seperti FP16 di atas -- salin
