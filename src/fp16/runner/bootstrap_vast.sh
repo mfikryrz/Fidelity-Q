@@ -425,4 +425,12 @@ fi
 fi
 
 say "SELESAI. Ringkasan:"
-[ -f "$CODE/ringkas_vast.py" ] && "$PY" "$CODE/ringkas_vast.py" "$HASIL" 2>/dev/null | tail -30
+# `[ -f ... ] && ...` sebagai baris TERAKHIR skrip berarti exit code skrip
+# = exit code pengecekan itu. Kalau ringkas_vast.py tidak ada (wajar untuk
+# run 10-40/10-30 -- berkas itu cuma dipakai tahap 90), seluruh skrip keluar
+# exit 1 PADAHAL semua tahap sebelumnya sukses -- ketemu nyata 24 Sep 2026,
+# sempat dikira bootstrap gagal walau 35/35 ONNX sudah benar & sehat.
+if [ -f "$CODE/ringkas_vast.py" ]; then
+  "$PY" "$CODE/ringkas_vast.py" "$HASIL" 2>/dev/null | tail -30
+fi
+exit 0
